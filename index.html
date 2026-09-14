@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>公募REITs 全量投研面板 [09-01 11:01]</title>
+<title>公募REITs投研平台</title>
 <link rel="icon" href="icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128.png">
@@ -30,6 +30,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 })();
 </script>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="research-layout.css?v=20260914-2">
 </head>
 <body>
 <nav id="topbar" data-cur="pano">
@@ -72,15 +73,12 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
       <button data-v="signal">策略信号</button>
     </div>
     <div class="sub" id="adviceSub">
-      <button data-pg="advice" data-scroll="advOverview" class="on" aria-current="page">观点总览</button>
-      <button data-pg="advice" data-scroll="advGates">五维闸门</button>
-      <button data-pg="advice" data-scroll="advHorizons">仓位节奏</button>
+      <button data-pg="advice" data-scroll="advOverview" class="on" aria-current="page">配置总览</button>
       <button data-pg="advice" data-scroll="advRights">分权估值</button>
-      <button data-pg="advice" data-scroll="advThemes">主线策略</button>
-      <button data-pg="advice" data-scroll="advSupply">供需雷达</button>
-      <button data-pg="advice" data-scroll="advReval">重估计分</button>
-      <button data-pg="advice" data-scroll="advSectors">板块配置</button>
-      <button data-pg="advice" data-scroll="advRisk">风险与来源</button>
+      <button data-pg="advice" data-scroll="advCash">现金流质量</button>
+      <button data-pg="advice" data-scroll="advSectors">板块筛选</button>
+      <button data-pg="advice" data-scroll="advRisk">风险与压力测试</button>
+      <button data-pg="advice" data-scroll="advSources">研究依据</button>
     </div>
     <div class="sub" id="instSub">
       <button data-inst-ex="" class="on" aria-current="page">全部交易所</button>
@@ -454,80 +452,149 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 </div><!-- /pg-research -->
 
 <div class="page" id="pg-advice" hidden>
-<!-- ============ 配置建议（分权破局重估学派） ============ -->
-<div class="sec-head"><span class="no">③</span><span class="t">配置建议与风险提示</span><span class="d">分权破局重估学派 · 双时间戳 · 闸门约束 · 结构配置</span></div>
+<header class="research-header">
+  <h1>配置建议与风险</h1>
+  <p>以可持续现金流定价，以风险预算决定配置。专业投资者研究框架。</p>
+</header>
+<section id="v-advice" aria-label="配置研究正文">
+  <article class="card" id="advOverview">
+    <div class="allocation-overview">
+      <div>
+        <span class="research-label">配置结论 · 条件性判断</span>
+        <h2 id="adviceHeadline" class="thesis">优先验证现金流，再判断价格是否提供足够补偿。</h2>
+        <p>产权类以可持续分派及资产价值交叉估值；经营权类以剩余期限现金流计算IRR。保租房可优先进入现金流稳定性筛选，园区、物流及消费需核查续租与租金，能源、公路及数据中心需逐项目验证收入机制。</p>
+        <p class="research-caveat">当前尚缺统一口径的逐券远期分派、估值净资产和剩余全周期现金流，不能据价格低位直接判定“全面低估”，也不足以形成可执行的板块超配名单。</p>
+      </div>
+      <aside class="evidence-status" aria-label="研究与数据状态">
+        <dl>
+          <div><dt>研究核查日</dt><dd>2026-09-14</dd></div>
+          <div><dt>行情交易日</dt><dd id="allocationMarketDate">待加载</dd></div>
+          <div><dt>行情覆盖</dt><dd id="allocationCoverage">待加载</dd></div>
+          <div><dt>个券估值结论</dt><dd>待逐券验证</dd></div>
+        </dl>
+        <p id="allocationFreshness" class="research-caveat">研究与行情分别标注日期。</p>
+        <p class="research-caveat">依据：监管规则、交易所公开资料及已核实运营披露。<a href="#advSources">查看来源与适用范围</a></p>
+      </aside>
+    </div>
+    <ul class="decision-list" id="advGates">
+      <li><b>进入候选池</b><p>现金流可核验，估值口径一致；压力情景下收益与损失满足组合约束。</p></li>
+      <li><b>增加配置</b><p>经营数据兑现、价格仍有安全边际，且成交容量允许有序建仓。</p></li>
+      <li><b>降低配置</b><p>核心现金流假设被证伪，或风险集中度、退出天数突破组合限额。</p></li>
+    </ul>
+  </article>
 
-<section id="v-advice">
-  <div class="card" id="advOverview">
-    <h2>观点总览与有效期</h2>
-    <p class="note">研究日 / 行情日双时间戳 · 板块动作以 advice.sectorViews 为准 · 不构成投资建议</p>
-    <div id="adviceAsOf" class="advice-asof"></div>
-    <div id="adviceHeadline" class="advice-headline"></div>
-    <div id="adviceRating" class="advice-rating"></div>
-    <div id="adviceConflictFlags" class="advice-flags"></div>
-    <div id="adviceMotto" class="advice-motto"></div>
-  </div>
+  <article class="card" id="advRights">
+    <h2>估值：两类资产，两套现金流逻辑</h2>
+    <p class="note">分派率用于观察当期现金回报，IRR覆盖剩余存续期；两者不可直接排序。上交所2025年报综述也分别列示这两类指标。<a href="#source-2">[2]</a></p>
+    <div class="valuation-grid">
+      <div><h3>产权类</h3>
+        <p>先剔除一次性释放，估计未来12个月每份可持续分派；再用资产层NOI、资本开支及退出价值评估基金权益价值。</p>
+        <code class="formula">远期分派率 = 未来12个月每份可持续分派 ÷ 当前价格<br>P/NAV = 当前基金市值 ÷ 归属于基金持有人的评估净资产</code>
+        <p><b>交叉核验：</b>分派利差、同类资产资本化率、评估时点及假设。资产评估值需扣除净债务及相关负债，不能直接当基金NAV；P/NAV低于1也不能单独证明低估。</p>
+        <p id="rightsSnapshot0" class="research-caveat">产权类行情快照待加载。</p>
+      </div>
+      <div><h3>经营权类</h3>
+        <p>以当前买入价格和剩余期限可获得的分派、到期可回收价值求解IRR。高额现金分派可能包含投资本金的经济回收。</p>
+        <code class="formula">P₀ = Σ Dₜ / (1+IRR)ᵗ + TVₙ / (1+IRR)ⁿ</code>
+        <p><b>交叉核验：</b>剩余年限、收费或付费机制、维护支出、期末移交责任。残值须有合同依据；收益率比较应匹配期限和现金流风险，不能默认所有经营权都是稳定底仓。</p>
+        <p id="rightsSnapshot1" class="research-caveat">经营权类行情快照待加载。</p>
+      </div>
+    </div>
+    <details class="research-detail"><summary>展开：估值口径的四项校验</summary>
+      <p><b>统一日期：</b>价格、国债收益率和预测现金流须标注各自日期；历史分派率与远期分派率分开。用于估值的现金流应统一到相同估值日。</p>
+      <p><b>统一分母：</b>发行价、期末价格与当前价格对应不同分派率；基金市值与资产企业价值也不可混用。除权日前后需匹配买方是否享有本次分红。</p>
+      <p><b>统一历史样本：</b>利差历史分位必须注明区间、频率、样本构成及权重。价格分位既不是利差分位，也不能控制分派下修、扩募或资产剩余年限变化。</p>
+      <p><b>统一收益概念：</b>IRR是现金流假设下的折现率，不是承诺收益；持有期回报还受卖出价格、分派时点和再投资条件影响。不存在适用于全部REITs的单一国债收益率减仓线。</p>
+    </details>
+  </article>
 
-  <div class="card" id="advMethod">
-    <h2>学派方法脊柱（短卡）</h2>
-    <p class="note">分权定价 · 资金为先 · 五维破局 · 结构配置</p>
-    <div id="adviceSpine" class="advice-spine"></div>
-  </div>
+  <article class="card" id="advCash">
+    <h2>现金流：从账面利润追到每份分派</h2>
+    <p class="note">基础设施基金年度分配比例不低于年度可供分配金额的90%；该要求不等于固定收益承诺，也不等于收入或净利润的90%。<a href="#source-1">[1]</a></p>
+    <div class="cash-bridge" aria-label="现金流核查顺序">
+      <div><b>经营收益</b><p>租金 / 收费收入<br>核查同口径量价与成本</p></div>
+      <div><b>实际回款</b><p>应收账款、预收款<br>区分当期经营与跨期收付</p></div>
+      <div><b>可分配现金</b><p>维护开支、债务服务、预留<br>逐项核对披露调整表</p></div>
+      <div><b>每份分派</b><p>分派金额与对应份额<br>识别扩募、期间及除权影响</p></div>
+    </div>
+    <p>会计折旧摊销可形成非现金调整，但维护更新支出仍会消耗现金。不得在披露可供分配金额之外再次机械加回折旧；投资人应另行建立“披露金额—一次性项目—可持续水平”的调节表。</p>
+    <details class="research-detail" open><summary>披露实例：达成预测不等于当前价格具有吸引力</summary>
+      <p>凯德消费REIT在2026年8月31日的中报解读中披露：可供分配金额5,303.75万元，预测完成率103.33%；期末出租率97.27%，租金收缴率98.53%。其年化分派率4.68%采用<b>发行价</b>口径。<a href="https://origin.clcreit.com/news/2026-h1" target="_blank" rel="noopener">运营披露原文 [3]</a></p>
+      <p><b>研究判断：</b>上述信息用于验证当期运营及预测达成，尚不足以直接作出买入评级。仍需结合当前买入价、未来租约到期、调改开支和后续分派预测。单个项目不能代表整个消费板块，半年分派也不宜无条件乘二外推。</p>
+    </details>
+    <details class="research-detail"><summary>展开：每次定期报告更新应核查什么</summary>
+      <p>核查同店收入及NOI、有效租金、出租率统计方法、应收账款账龄、现金收缴、维护与改造支出、借款利息及偿还安排、现金预留与释放。扩募前后应剔除新增资产并表影响，不能把规模增长全部视为内生增长。</p>
+      <p>季度实际与年度预测比较须考虑季节性及上市期间差异；收益分配属于实际派现，可供分配金额属于报告期口径，两者可能不同。定期报告披露规则以适用交易所现行文本为准，上交所2025年12月已修订中期及季度报告指引。<a href="#source-5">[5]</a></p>
+    </details>
+  </article>
 
-  <div class="card" id="advGates">
-    <h2>五维破局闸门</h2>
-    <p class="note">过闸门前禁止趋势牛叙事 · 状态灯：亮 / 偏亮 / 暗 / 观察</p>
-    <div id="adviceGates" class="gate-grid"></div>
-  </div>
+  <article class="card" id="advSectors">
+    <h2>板块配置：用条件筛选替代统一评级</h2>
+    <p class="note">以下为分析框架，不代表已完成个券筛选。每个项目应按实际权属、租约及收入机制重新归类；组合角色须在估值与压力测试通过后确定。</p>
+    <div class="table-tools"><label for="sectorResearchFilter">研究方向</label><select id="sectorResearchFilter"><option value="all">全部板块</option><option value="income">现金流稳定性</option><option value="repair">经营修复</option><option value="contract">合同与期限</option></select><span>横向对照“进入条件”与“证伪信号”</span></div>
+    <div class="table-scroll" id="advicePerf">
+      <table class="matrix research-table"><thead><tr><th scope="col">资产板块</th><th scope="col">配置逻辑</th><th scope="col">进入条件</th><th scope="col">证伪 / 降配信号</th></tr></thead><tbody>
+        <tr data-role="income"><td><strong>保租房</strong><span class="cell-note">稳定现金流候选</span></td><td>需求与租金约束共同决定现金流，低波动须由实际收缴证明。</td><td>核查有效租金、收缴率、续租、同区域供给；压力下每份分派满足收益要求。</td><td>入住依赖持续优惠，维修支出抬升；有效租金或收缴恶化却未进入估值预测。</td></tr>
+        <tr data-role="repair"><td><strong>消费设施</strong><span class="cell-note">运营能力筛选</span></td><td>底租、扣点租金及调改共同决定弹性，不宜直接归为抗周期。</td><td>销售、客流转化为租金和现金；同店NOI改善能够覆盖调改及招商投入。</td><td>以免租维持出租率，主力店退出；调改投入增加但收入与现金未兑现。</td></tr>
+        <tr data-role="repair"><td><strong>产业园</strong><span class="cell-note">续租修复筛选</span></td><td>厂房与办公园区分开比较，重点看产业客户信用和租金兑现。</td><td>集中到期租约有真实续租证据；净有效租金与同店NOI趋稳，新增供给可吸收。</td><td>高出租率掩盖租金折让；关联租户、单一行业或单一园区风险过度集中。</td></tr>
+        <tr data-role="repair"><td><strong>仓储物流</strong><span class="cell-note">租金修复筛选</span></td><td>区位、设施条件与合同租金重定价决定价值，不能只看出租率回升。</td><td>到期租约租金压力已计入预测；租赁期限、客户集中度、补贴与免租口径清楚。</td><td>以低价换出租率；续租净租金继续下行或大客户迁出导致现金流低于基准。</td></tr>
+        <tr data-role="contract"><td><strong>高速公路</strong><span class="cell-note">有限期限定价</span></td><td>交通量、收费标准、路网竞争与剩余期限共同决定IRR。</td><td>按客货结构重估车流，扣足养护开支并核查移交义务；压力IRR满足要求。</td><td>新路分流、货运结构变化、养护超预算；以未经批准的延长收费期支撑估值。</td></tr>
+        <tr data-role="contract"><td><strong>能源</strong><span class="cell-note">收入机制筛选</span></td><td>光伏、风电、水电、供热等分开分析；行业标签不构成收益保障。</td><td>核查结算电价或收费、出力、消纳、补贴回款及大修；用实际权属匹配期限。</td><td>电价与发电量双降、限电、应收增长；补贴账面确认与现金到账持续背离。</td></tr>
+        <tr data-role="contract"><td><strong>市政环保</strong><span class="cell-note">回款质量筛选</span></td><td>处理量与付费方支付能力并重，公共服务属性不能替代回款分析。</td><td>核查保底量 / 价机制、调价程序、应收账龄及实际支付；预留足额更新支出。</td><td>财政或客户回款延后、量价结算争议；收入增长而经营现金持续转弱。</td></tr>
+        <tr data-role="contract"><td><strong>数据中心</strong><span class="cell-note">合同与资本开支</span></td><td>区分出租、上架及实际计费；行业需求增长不自动传导到已出租项目。</td><td>核查计费容量、客户信用、电费转嫁、续约及设备更新责任；不重复计入成长。</td><td>客户集中、续约降价、电耗增加；设备更新资本开支未进入现金流预测。</td></tr>
+        <tr data-role="repair"><td><strong>商业不动产</strong><span class="cell-note">按底层业态拆分</span></td><td>属于产品覆盖范围，不能视为单一经济板块；零售、办公等分别比较。</td><td>拆分租约到期、有效租金及同区域供给，核验估值日与退出假设。<a href="#source-7">[7][8]</a></td><td>将首发价当价值下限，将制度扩容直接等同资金流入；混用不同业态分派率。</td></tr>
+      </tbody></table>
+    </div>
+    <p class="research-caveat">运营指标选择参考上交所审核关注事项中对租赁、现金流提供方及预测假设的要求；表内配置条件为本研究判断，不是监管阈值。<a href="#source-4">[4]</a></p>
+  </article>
 
-  <div class="card" id="advHorizons">
-    <h2>周 / 月 / 季仓位节奏</h2>
-    <p class="note">positionBias 仅为 UI 倾向条（∈[-1,1]），非杠杆建议</p>
-    <div id="adviceHorizons" class="horizon-grid"></div>
-  </div>
+  <article class="card" id="advRisk">
+    <h2>风险监测：把风险映射到现金流、价格和退出</h2>
+    <p class="note">先记录基准预测与组合限额，再判断偏离是否需要行动。以下为研究流程，具体阈值由投资授权、持有期限与风险预算确定。</p>
+    <div class="table-scroll"><table class="matrix research-table"><thead><tr><th scope="col">风险</th><th scope="col">观测证据 / 频率</th><th scope="col">触发复核的情形</th><th scope="col">应对动作</th></tr></thead><tbody>
+      <tr><td>分派下修</td><td>同店NOI、收缴与应收账龄；按季，重大公告即时。</td><td>经营偏离持续且无法由季节性解释，或分派依靠一次性释放维持。</td><td>重估未来每份分派；暂停基于旧预测加仓，价格未补偿损失时降配。</td></tr>
+      <tr><td>利率与溢价</td><td>同期限国债、同类资产收益要求；每日 / 每周。</td><td>现金流不变而要求回报率上升，或现金流下修与风险溢价扩大同时发生。</td><td>分别冲击贴现率与现金流，按组合损失预算调整；不使用统一“2%减仓线”。</td></tr>
+      <tr><td>流动性与供给</td><td>成交额、买卖价差、解禁公告、实际减持与发行日程；每周。</td><td>预计退出天数超过授权限额，或新增供给与成交缩量同时出现。</td><td>按持仓金额 /（日均成交额 × 可接受参与率）估计退出天数；压力下调成交额假设。</td></tr>
+      <tr><td>扩募与关联交易</td><td>新资产定价、融资成本、增发份额、运营协议；逐项交易。</td><td>资产规模增加但每份可持续分派被摊薄；关联交易定价或利益安排不清晰。</td><td>比较扩募前后每份现金流及NAV；单列整合成本与新增杠杆，不因原始权益人实力直接加分。<a href="#source-6">[6]</a></td></tr>
+      <tr><td>集中度与期限</td><td>租户、付费方、区域、原始权益人及运营管理机构暴露；每月。</td><td>单一风险来源超限，或经营权剩余期缩短导致本金回收压力增加。</td><td>穿透基金名称计算共同风险，按相关性和压力损失配置；更新逐期IRR。</td></tr>
+      <tr><td>权属与运营事件</td><td>土地期限、经营许可、诉讼、安全及停运公告；即时。</td><td>核心经营资格、可收取现金流或持续运营能力受到实质影响。</td><td>重估停运期、恢复成本及残值；必要时暂停新增投资并启动退出评审。</td></tr>
+    </tbody></table></div>
+    <div class="scenario">
+      <div><h3>现金流与贴现率压力测试</h3><p class="note">纯假设示例，非当前市场数据；修改参数仅影响此演示。</p>
+        <form id="stressForm" class="scenario-form">
+          <label>估值模型<select id="stressKind"><option value="property">产权 · 零增长永续近似</option><option value="concession">经营权 · 有限期等额现金流</option></select></label>
+          <label>基准贴现率（%）<input id="stressRate" type="number" value="5" min="0.1" max="30" step="0.1" required></label>
+          <label>贴现率变动（BP）<input id="stressShock" type="number" value="50" min="-500" max="1000" step="10" required></label>
+          <label>每期现金流变动（%）<input id="stressCash" type="number" value="-5" min="-100" max="100" step="1" required></label>
+          <label>经营权剩余年限（年）<input id="stressYears" type="number" value="15" min="1" max="100" step="1" required></label>
+        </form>
+      </div>
+      <div class="scenario-output"><span class="research-label">相对基准模型的估值变化</span><output id="stressResult" class="scenario-value" aria-live="polite"></output><p id="stressMethod"></p><p>结果为模型价值敏感性，不是预测价格跌幅、持有期回报或亏损概率。贴现率变化包含无风险利率与风险溢价的合计变化。</p></div>
+    </div>
+  </article>
 
-  <div class="card" id="advRights">
-    <h2>产权 vs 经营权（分权估值）</h2>
-    <p class="note">卖方证据保留 research 日期；下方 live 聚合来自 data.json 行情日</p>
-    <div id="adviceRights" class="rights-grid"></div>
-  </div>
-
-  <div class="card" id="advThemes">
-    <h2>三条主线 / 策略</h2>
-    <p class="note">CSC 三大策略 × 学派主线；仓位结构优先于择时口号</p>
-    <div id="adviceThemes" class="themes-grid"></div>
-  </div>
-
-  <div class="card" id="advSupply">
-    <h2>供需雷达</h2>
-    <p class="note">解禁 / 新发 / 指数基金 / 债基 / 险资 · 与供给闸门联动</p>
-    <div id="adviceSupply" class="supply-grid"></div>
-  </div>
-
-  <div class="card" id="advReval">
-    <h2>重估计分卡</h2>
-    <p class="note">复用仪表盘 revaluation 四条件 · 映射至五维闸门</p>
-    <div id="adviceReval" class="advice-reval"></div>
-  </div>
-
-  <div class="card" id="advSectors">
-    <h2>板块配置表</h2>
-    <p class="note">优先 advice.sectorViews；cycle.mapping 降级为宏观注释（如有）</p>
-    <div class="table-scroll" id="advicePerf"></div>
-    <p class="note" id="adviceMappingNote" style="margin-top:12px"></p>
-  </div>
-
-  <div class="card" id="advRisk">
-    <h2>风险 · 数据缺口 · 来源 · 免责声明</h2>
-    <div id="adviceRisks" class="advice-risks"></div>
-    <h3 style="font-size:13px;margin:16px 0 6px">数据缺口</h3>
-    <div id="adviceGaps" class="advice-gaps"></div>
-    <h3 style="font-size:13px;margin:16px 0 6px">来源</h3>
-    <div id="adviceSources" class="advice-sources"></div>
-    <div id="adviceDisclaimer" class="advice-disclaimer"></div>
-  </div>
+  <article class="card" id="advSources">
+    <h2>研究依据与更新要求</h2>
+    <p>上述筛选与风险框架为独立分析判断。规则用于确定披露与核查范围；经营披露用于验证具体事实，不直接推导市场时点或组合权重。未核验的卖方利差分位、增量资金规模及解禁金额不纳入当前定量结论。</p>
+    <ol class="reference-list">
+      <li id="source-1"><a href="https://www.csrc.gov.cn/csrc/c100028/c1000722/content.shtml" target="_blank" rel="noopener">证监会：发布《公开募集基础设施证券投资基金指引（试行）》</a><small>2020-08-07 · 基础设施基金分配要求；商业不动产另结合2025年试点规则。</small></li>
+      <li id="source-2"><a href="https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260403_10814138.shtml" target="_blank" rel="noopener">上交所：沪市公募REITs 2025年年报综述</a><small>2026-04-03 · 历史统计及产权分派率 / 经营权IRR分类；非当前估值数据。</small></li>
+      <li id="source-3"><a href="https://origin.clcreit.com/news/2026-h1" target="_blank" rel="noopener">凯德消费REIT：2026年中期报告解读</a><small>2026-08-31 · 单基金运营披露；发行价口径分派率，非全市场样本。</small></li>
+      <li id="source-4"><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803742.shtml" target="_blank" rel="noopener">上交所：审核关注事项指引</a><small>2025-12-31 · 上证发〔2025〕139号；运营、租约及现金流预测核查。</small></li>
+      <li id="source-5"><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803741.shtml" target="_blank" rel="noopener">上交所：中期报告和季度报告指引</a><small>2025-12-31 · 上证发〔2025〕145号；替代2024年版本。</small></li>
+      <li id="source-6"><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/reits/c/c_20251231_10803751.shtml" target="_blank" rel="noopener">上交所：扩募及新购入不动产指引</a><small>2025-12-31 · 上证发〔2025〕141号；替代2022年版本。</small></li>
+      <li id="source-7"><a href="https://www.csrc.gov.cn/csrc/c100028/c7605669/content.shtml" target="_blank" rel="noopener">证监会：商业不动产投资信托基金试点公告说明</a><small>2025-12-31 · 正式实施版本，区别于征求意见稿。</small></li>
+      <li id="source-8"><a href="https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20260618_10822885.shtml" target="_blank" rel="noopener">上交所：首批商业不动产REITs上市</a><small>2026-06-18 · 产品与业态范围；不构成未来资金流入预测。</small></li>
+    </ol>
+    <details class="research-detail"><summary>数据缺口及观点更新纪律</summary>
+      <p>逐券补齐：未来12个月可持续分派、评估净资产及评估日期、剩余全周期分派预测、利差同口径历史序列、租约到期分布、资本开支计划、解禁与实际减持、扩募后的每份现金流。缺少现金流证据的项目保留“待验证”，不能按零风险处理。</p>
+      <p>交易数据每个交易日检查；量价与供给每周复核；经营、估值及分派随定期报告更新；重大事件即时复核。每次更新保留原预测、偏离原因、修订人及生效日期。上交所规则仅直接适用于沪市项目，深市项目执行相应深交所规则。</p>
+    </details>
+    <p class="research-caveat"><a href="research/allocation-research-2026-09-14.md" download>下载完整研究备忘录（Markdown）</a> · 研究框架供专业分析使用，不构成具体证券的买卖建议或收益承诺。</p>
+  </article>
 </section>
 </div><!-- /pg-advice -->
+
 
 <div class="page" id="pg-inst" hidden>
 <div class="sec-head"><span class="no">④</span><span class="t">机构间REITs（不动产ABS）</span><span class="d">沪深交易所不动产ABS专项计划项目 · 顶部二级菜单筛选交易所与类型</span></div>
@@ -565,6 +632,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 
 <script src="ui-utils.js" defer></script>
 <script src="lib/echarts-custom.min.js" defer></script>
-<script src="app.js" defer></script>
+<script src="app.js?v=20260914-2" defer></script>
+<script src="allocation-tools.js?v=20260914-2" defer></script>
 </body>
 </html>
