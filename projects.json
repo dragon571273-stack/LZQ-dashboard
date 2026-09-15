@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-11 21:40:03",
+ "updated": "2026-09-15 14:11:11",
  "ndrc": [
   {
    "name": "信义能源新能源项目",
@@ -214,9 +214,9 @@
    "name": "中金温州公用水利封闭式基础设施证券投资基金",
    "manager": "中金基金管理有限公司",
    "assetType": "基础设施",
-   "status": "已受理",
+   "status": "已反馈",
    "acceptDate": "2026-08-20",
-   "updateDate": "2026-08-20",
+   "updateDate": "2026-09-14",
    "link": "https://www.sse.com.cn/reits/info/index_detail.shtml?audit_id=c330717c560146148c72a9a3bdeb4de8"
   },
   {
@@ -322,9 +322,9 @@
    "name": "国金嘉泽新能源封闭式基础设施证券投资基金",
    "manager": "国金基金管理有限公司",
    "assetType": "基础设施",
-   "status": "已反馈",
+   "status": "已申报",
    "acceptDate": "2026-03-02",
-   "updateDate": "2026-08-07",
+   "updateDate": "2026-09-11",
    "link": "https://www.sse.com.cn/reits/info/index_detail.shtml?audit_id=0c134614a72047339c77d9e3049f03fc"
   },
   {
