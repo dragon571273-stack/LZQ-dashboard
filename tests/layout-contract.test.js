@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 // 重构后：HTML 骨架在 index.html，样式在 styles.css，逻辑在 app.js；契约检查针对三者合集
-const html = ["index.html", "styles.css", "app.js"]
+const html = ["index.html", "styles.css", "research-layout.css", "app.js", "allocation-tools.js", "workspace.css", "workspace.js"]
   .map((f) => fs.readFileSync(path.join(__dirname, "..", f), "utf8"))
   .join("\n");
 
@@ -29,13 +29,13 @@ test("mobile secondary navigation exposes scrollable tabs", () => {
   assert.match(html, /#subbar \.sub\s*\{[^}]*scroll-snap-type:\s*x proximity/s);
 });
 
-test("school advice overview precedes gates and sector table", () => {
+test("allocation conclusion precedes entry conditions and sector research", () => {
   const overview = html.indexOf('id="advOverview"');
   const gates = html.indexOf('id="advGates"');
   const sectors = html.indexOf('id="advSectors"');
   assert.ok(overview >= 0 && gates > overview && sectors > gates);
   assert.match(html, /id="adviceHeadline"/);
-  assert.match(html, /id="adviceGates"/);
+  assert.match(html, /id="advCash"/);
   assert.match(html, /class="table-scroll" id="advicePerf"/);
   assert.doesNotMatch(html, /弱复苏初期/);
 });
@@ -56,20 +56,20 @@ test("primary navigation preserves page scroll positions", () => {
   assert.match(html, /behavior: "auto"/);
 });
 
-test("primary and secondary navigation share one sticky shell", () => {
-  assert.match(html, /<nav id="topbar"[^>]*>[\s\S]*<div id="subbar"[\s\S]*<\/nav>\s*<div class="data-meta" id="meta">/);
-  assert.match(html, /#topbar\s*\{[^}]*position:\s*sticky/s);
-  assert.doesNotMatch(html, /#subbar\s*\{[^}]*position:\s*sticky/s);
-  assert.doesNotMatch(html, /#subbar\s*\{[^}]*(?:^|;)\s*top:\s*\d+px/ms);
+test("workspace separates primary navigation from sticky analysis tabs", () => {
+  assert.match(html, /<aside id="sidebar"/);
+  assert.match(html, /id="sidebarToggle"/);
+  assert.match(html, /#subbar\s*\{[^}]*position:\s*sticky/s);
+  assert.match(html, /prefers-reduced-motion/);
 });
 
 test("secondary navigation labels do not use numeric prefixes", () => {
   const adviceStart = html.indexOf('id="adviceSub"');
   const adviceSub = html.slice(adviceStart, html.indexOf("</div>", adviceStart));
   assert.doesNotMatch(adviceSub, /[①②③④]/);
-  assert.match(adviceSub, />观点总览</);
-  assert.match(adviceSub, />五维闸门</);
-  assert.match(adviceSub, />风险与来源</);
+  assert.match(adviceSub, />配置总览</);
+  assert.match(adviceSub, />分权估值</);
+  assert.match(adviceSub, />研究依据</);
 });
 
 test("navigation state and anchor offsets are accessible and header-aware", () => {
@@ -82,8 +82,8 @@ test("navigation state and anchor offsets are accessible and header-aware", () =
   assert.doesNotMatch(html, /document\.querySelectorAll\("#subbar \.sub button\.on"\)/);
 });
 
-test("advice page loads advice.json without waiting on research package", () => {
-  assert.match(html, /配置建议只依赖 advice\.json/);
-  assert.match(html, /setAdviceLoadingPlaceholders/);
-  assert.match(html, /pg === "advice"/);
+test("verified research is readable without the legacy advice feed", () => {
+  assert.match(html, /id="advSources"/);
+  assert.doesNotMatch(html, /withScript\("advice\.js"/);
+  assert.match(html, /src="allocation-tools.js\?v=/);
 });

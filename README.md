@@ -1,5 +1,15 @@
 # 公募REITs 全量投研面板
 
+## 配置研究与布局更新（2026-09-14）
+
+配置页按“配置总览 → 分权估值 → 现金流质量 → 板块筛选 → 风险与压力测试 → 研究依据”组织。正文直接包含在 HTML 中；`allocation-tools.js` 只读行情，并提供板块筛选与独立假设情景计算。`research-layout.css` 统一导航、卡片和响应式表格布局，沿用三种主题。
+
+新版以[完整研究备忘录](research/allocation-research-2026-09-14.md)为依据，区分披露事实、研究判断与假设。原 `advice.json` / `advice.js` 和 `docs/school-framework.md` 保留为历史资料，当前配置页不再消费其评级、仓位倾向及未经逐项核验的卖方指标。行情更新不会自动刷新研究观点。
+
+压力测试采用独立示例参数，不读写原始财务模型；产权采用零增长永续近似，经营权采用有限期等额年末现金流。正式投资定价仍须逐券建模。`npm test` 包含独立现金流现值核验、无效参数和缺失行情样本检查。
+
+以下为既有数据管线与运行说明。
+
 覆盖全部上市公募 REITs 的二级市场投研 Dashboard：全景热力图、策略分类研究（防御/周期/成长）、大类资产相关性、板块轮动、个券全表、配置建议。
 
 - 数据源：同花顺 iFinD（行情与指数）
@@ -98,3 +108,14 @@ npm i echarts@5.6.0 esbuild
 cp <仓库>/scripts/echarts-custom-entry.js entry.js
 npx esbuild entry.js --bundle --minify --format=iife --outfile=lib/echarts.min.js
 ```
+
+### 机构投研工作台改版（2026-09-15）
+
+本轮依据 UI UX Pro Max 的 Data-Dense Dashboard 设计方向重构全站。主导航迁移至侧栏，分析任务使用顶部页签；市场总览增加真实等权价格序列、板块比较与成交活跃资产，配置研究按专题展示。手机端使用抽屉导航，并支持键盘关闭、焦点约束与宽表格局部滚动。
+
+- `workspace.css`：统一工作台、主题及响应式布局。
+- `workspace.js`：导航、历史走势、只读 CSV 导出与行情组件。历史走势使用 `data_research.json.series.market`，所选区间起点归一为 100，与中证 REITs 全收益指数分别标注。
+- `design-system/reits-workspace/MASTER.md`：设计检索、适配判断与组件约束。
+- `docs/review-20260915/`：检查记录和桌面、移动端截图。
+
+行情数据文件、采集脚本与财务模型未修改；已核验的配置研究正文及来源保留。验证：`npm test`。
