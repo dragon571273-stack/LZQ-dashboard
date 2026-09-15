@@ -29,12 +29,6 @@ jobs:
       - name: 安装依赖
         run: pip install pandas
 
-      - name: 安装 Scrapling 反爬组件（招投标 ctbpsp 抓取，失败则自动走兜底源）
-        continue-on-error: true
-        run: |
-          pip install "scrapling[all]"
-          scrapling install || true
-
       - name: 更新宏观周期数据（10Y国债收益率）
         continue-on-error: true
         run: python update_cycle_data.py
@@ -90,8 +84,8 @@ jobs:
             exit 0
           fi
           rm -rf .cf-deploy && mkdir .cf-deploy
-          cp index.html app.js styles.css ui-utils.js _headers .cf-deploy/
-          cp data.json data_research.json news.json corp_actions.json projects.json reits_snapshot.json .cf-deploy/
-          cp -r lib icons .cf-deploy/
+          cp index.html app.js styles.css research-layout.css allocation-tools.js workspace.css workspace.js tender-feed.js ui-utils.js _headers .cf-deploy/
+          cp tenders.json data.json data_research.json news.json corp_actions.json projects.json reits_snapshot.json .cf-deploy/
+          cp -r lib icons research .cf-deploy/
           npm i -D wrangler --no-save
           npx wrangler pages deploy .cf-deploy --project-name=reits-dashboard --branch=main --commit-dirty=true

@@ -1033,7 +1033,7 @@ LAZY.research.push(function () {
     var N = window.REITS_NEWS;
     if (!N || !N.items || !N.items.length) {
       $("newsFeed").innerHTML = '<div class="empty">暂无事件数据 — 请先运行 fetch_news.py</div>';
-      return;
+      N = {items:[], tags:["全部", "招投标"]};
     }
     var escHtml = window.escHtml || function (v) { return String(v == null ? "" : v); };
     var tag = "全部";
@@ -1057,6 +1057,7 @@ LAZY.research.push(function () {
       render();
     });
     render();
+    if (window.ReitsTenders) window.ReitsTenders.load(N).then(function (updated) { N = updated; render(); });
   });
 
   // ---- 分红/解禁/扩募战配公告监测 ----
