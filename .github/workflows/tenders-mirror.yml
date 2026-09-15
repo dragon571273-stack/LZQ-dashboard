@@ -1,0 +1,30 @@
+name: 招投标数据镜像同步
+on:
+  push:
+    branches: [main]
+    paths: [tenders.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tender-mirror
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: 同步Cloudflare镜像
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then exit 0; fi
+          DEPLOY_DIR=$(mktemp -d)
+          cp index.html app.js styles.css research-layout.css allocation-tools.js workspace.css workspace.js tender-feed.js ui-utils.js _headers "$DEPLOY_DIR/"
+          cp tenders.json data.json data_research.json news.json corp_actions.json projects.json reits_snapshot.json "$DEPLOY_DIR/"
+          cp -r lib icons research "$DEPLOY_DIR/"
+          npx wrangler pages deploy "$DEPLOY_DIR" --project-name=reits-dashboard --branch=main --commit-dirty=true

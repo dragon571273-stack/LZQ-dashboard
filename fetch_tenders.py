@@ -214,7 +214,7 @@ def build_payload(previous: dict[str,Any], results: list[dict[str,Any]], checked
     status = 'ok' if primary.get('status')=='ok' else 'degraded' if success or new else 'failed'
     items = merge_items(previous.get('items',[]),new,today)
     return {'checkedAt':checked,'lastSuccessAt':checked if success else previous.get('lastSuccessAt'),
-            'status':status,'schedule':'每日北京时间09:20、18:20（调度可能延迟）','retentionDays':90,
+            'status':status,'schedule':'云端每日09:20/18:20；本机补充09:50/18:50（北京时间；Mac需开机联网）','retentionDays':90,
             'latestBulletinDate':max((x['date'] for x in items),default=None),'sources':sources,'items':items}
 
 

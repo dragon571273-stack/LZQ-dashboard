@@ -133,3 +133,12 @@ npx esbuild entry.js --bundle --minify --format=iife --outfile=lib/echarts.min.j
 - 全部来源失败时先尝试发布失败状态，再令工作流失败；GITHUB_TOKEN 推送后显式请求 GitHub Pages 构建，并同步 Cloudflare 镜像。
 
 本地验证：`pip install -r requirements-tenders.txt`；`python -m playwright install chromium`；`python -m unittest discover -s tests -p 'test_tenders.py'`。采集试运行可用 `python fetch_tenders.py --output /tmp/tenders-check.json`，不覆盖现有文件。
+
+
+### 本机定时补充（已配置）
+
+由于GitHub托管运行器访问全国性公告源返回405，当前Mac已配置用户级LaunchAgent `com.lion.reits-tenders`，每日北京时间09:50、18:50及用户登录后补跑。Mac需开机联网；休眠期间的日历任务通常在唤醒后补跑，关机不能按原时点执行。
+
+运行目录：`~/Library/Application Support/REITsTenderUpdater/`；日志：该目录下`updater.log`；配置：`~/Library/LaunchAgents/com.lion.reits-tenders.plist`。运行器代码见`scripts/update_tenders_local.py`。本机只通过GitHub内容API更新`tenders.json`，不更新行情、财务模型或本地仓库。更新期间有并发提交时，重读SHA并合并公告后重试。
+
+本机用户令牌推送自动触发GitHub Pages及招投标镜像发布；`tenders.json`变更不触发行情采集。运行器采用安装时的固定代码副本，后续升级需同步专用目录中的脚本。
