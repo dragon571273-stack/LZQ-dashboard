@@ -31,3 +31,7 @@
 ## 数据边界
 
 原始行情、历史序列、财务模型和研究文件不改写。新增首页图表为原序列的只读窗口归一化；必须展示实际序列日期。分派、估值数据不足时不虚构评级。
+
+## 视觉增强（2026-09-15）
+
+按用户要求加入建筑概念线稿及交互示意图。采用原创 SVG，与既有蓝色主题和语义色一致；现金流箭头不编码金额或预测。UX 检索 diagram animation reduced motion 匹配 Reduced Motion / Excessive Motion / Duration Timing，采用首次入屏淡入及一次性路径展开，每屏最多两个主要动画元素，节点切换保持即时反馈；reduced-motion 下禁用。使用原生 CSS 与 IntersectionObserver，不新增动画依赖。

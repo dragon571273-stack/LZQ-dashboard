@@ -44,6 +44,7 @@
     $('workspaceTitle').textContent = $('workspaceLocation').textContent = label[0];
     $('workspaceSubtitle').textContent = label[1];
     $('exportMarket').hidden = pg !== 'pano';
+    doc.querySelector('.heading-sketch').hidden = pg !== 'pano';
     selectAdviceForTarget($(activeAdvice));
     var wasOpen = doc.body.classList.contains('sidebar-open');
     drawer(false);
@@ -72,6 +73,29 @@
   }
   function init() {
     selectAdviceForTarget($(activeAdvice)); drawer(false);
+    // 示意图只切换解释，不读取或改写财务模型。
+    var explanations = {
+      cash: ['经营收益：先核查收入与经营成本的同口径变化，再判断利润是否有现金支持。','实际回款：核对应收账龄、收缴和预收款，区分本期经营与跨期收付。','可分配现金：逐项核对披露调整表，关注维护开支、债务服务与现金预留。','每份分派：核对实际分派金额和对应份额，区分期间差异与扩募影响。'],
+      risk: ['资产运营：观察量价、收缴与维护支出的变化，识别其对未来可分派现金的影响。','估值传导：分别检验现金流预测和折现率的变化，结合剩余期限与合同残值评估价值。','组合约束：穿透共同风险来源，并用成交容量、参与率和持仓核算退出天数。']
+    };
+    ['cash','risk'].forEach(function(kind){
+      doc.querySelectorAll('[data-'+kind+'-step]').forEach(function(button){button.addEventListener('click',function(){
+        doc.querySelectorAll('[data-'+kind+'-step]').forEach(function(b){b.classList.toggle('on',b===button);b.setAttribute('aria-pressed',String(b===button));});
+        $(kind+'Explanation').textContent=explanations[kind][Number(button.getAttribute('data-'+kind+'-step'))];
+      });});
+    });
+    doc.querySelectorAll('[data-right-scene]').forEach(function(button){button.addEventListener('click',function(){
+      var property=button.dataset.rightScene==='property';
+      doc.querySelectorAll('[data-right-scene]').forEach(function(b){b.classList.toggle('on',b===button);b.setAttribute('aria-pressed',String(b===button));});
+      $('terminalLabel').textContent=property?'期末价值':'合同到期';
+      $('terminalValue').textContent=property?'需评估':'核查残值';
+      $('rightsExplanation').textContent=property?'产权类：以可持续分派与资产价值交叉核验，仍须考虑土地剩余年限、资本开支和退出假设。':'经营权类：分派可能包含本金的经济回收；按剩余期限求解IRR，期末回收价值须有合同依据。';
+    });});
+    if (root.IntersectionObserver) {
+      var reveal=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-revealed');reveal.unobserve(entry.target);}});},{threshold:.15});
+      doc.querySelectorAll('.visual-reveal,.research-sketch').forEach(function(el){reveal.observe(el);});
+    }
+
     $('sidebarToggle').addEventListener('click',function(){drawer(true);});
     $('sidebarScrim').addEventListener('click',function(){drawer(false);$('sidebarToggle').focus();});
     doc.addEventListener('keydown',function(e){

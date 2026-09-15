@@ -322,3 +322,66 @@ th,.matrix th { font-size:11px; font-weight:500; background:var(--th-bg); color:
 .rv-item .nm { min-width:0; flex:1 1 110px; }
 .rv-item .vl { min-width:0; flex:1 1 155px; overflow-wrap:anywhere; }
 .rv-item .ds { flex:1 1 100%; }
+/* 资产线稿和研究路径：原创矢量，无额外图片请求。 */
+.heading-sketch { width:190px; height:86px; margin-left:auto; opacity:.8; }
+.heading-sketch + .heading-actions { margin-left:0; }
+.asset-sketch { width:100%; height:100%; color:var(--accent); overflow:visible; }
+.asset-sketch path,.asset-sketch circle { vector-effect:non-scaling-stroke; stroke:currentColor; stroke-width:1; fill:none; stroke-linejoin:round; stroke-linecap:round; }
+.asset-sketch .sketch-ground { opacity:.18; }
+.asset-sketch .sketch-face { fill:var(--panel); }
+.asset-sketch .sketch-shade { fill:var(--panel2); }
+.asset-sketch .sketch-accent { fill:var(--accent); fill-opacity:.1; }
+.asset-sketch .sketch-annotation { opacity:.45; stroke-dasharray:3 4; }
+.research-sketch { margin:-10px 0 22px; }
+.research-sketch .asset-sketch { display:block; height:162px; }
+.research-sketch figcaption { display:flex; justify-content:space-between; gap:8px; font-size:11px; color:var(--tx2); margin-top:8px; }
+.research-sketch figcaption span { color:var(--tx3); white-space:nowrap; }
+.concept-board { margin:22px 0 28px; padding:24px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); }
+.diagram-kicker { font:10px/1.5 var(--font-data); letter-spacing:1.5px; color:var(--accent); }
+.concept-board h3 { margin:8px 0 4px; font-size:18px; }
+.concept-board figcaption p { margin:0; color:var(--tx2); font-size:12px; }
+.concept-options { display:flex; gap:10px; margin:22px 0; flex-wrap:wrap; }
+.concept-options button { border:1px solid var(--line2); border-radius:6px; padding:11px 14px; background:var(--panel); color:var(--tx2); font-size:12px; min-height:44px; }
+.concept-options button.on { border-color:var(--accent); color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.rights-timeline { display:grid; grid-template-columns:100px 1fr 115px; align-items:center; gap:24px; margin:30px 0; }
+.timeline-origin,.timeline-terminal { display:flex; flex-direction:column; gap:10px; text-align:center; padding:20px 8px; border:1px solid var(--line2); border-radius:8px; background:var(--panel); }
+.timeline-origin span,.timeline-terminal span,.timeline-cash>span { font-size:12px; color:var(--tx2); }
+.timeline-origin b,.timeline-terminal b { font-size:20px; color:var(--accent); }
+.timeline-cash { text-align:center; min-width:0; }
+.timeline-cash svg { width:100%; height:86px; display:block; }
+.timeline-cash small { color:var(--tx3); font:11px var(--font-data); }
+.timeline-axis { stroke:var(--line2); fill:none; }
+.cash-arrows { fill:none; stroke:var(--accent); stroke-width:2; stroke-linecap:round; }
+.diagram-explanation { border-left:3px solid var(--accent); padding:12px 16px; background:var(--panel); color:var(--tx2); font-size:13px; line-height:1.8; margin:14px 0 0; min-height:48px; }
+.cash-kicker { margin-top:28px; }
+.cash-bridge { position:relative; gap:16px; margin:16px 0; }
+.cash-bridge > button { position:relative; text-align:left; border:1px solid var(--line); background:var(--panel2); border-radius:8px; padding:20px; color:var(--tx); transition:transform .18s,border-color .18s; min-width:0; }
+.cash-bridge > button.on { border-color:var(--accent); background:var(--panel); }
+.cash-bridge > button:hover { transform:translateY(-3px); border-color:var(--accent); }
+.cash-bridge > button b { display:block; margin-top:20px; font-size:15px; }
+.cash-bridge > button p { font-size:12px; color:var(--tx2); margin-bottom:0; }
+.cash-bridge > button:not(:last-child)::after { content:'→'; position:absolute; right:-14px; top:40%; color:var(--accent); z-index:1; }
+.flow-number { font:24px var(--font-data); color:var(--accent); opacity:.75; }
+.risk-route { display:grid; grid-template-columns:1fr 24px 1fr 24px 1fr; gap:12px; align-items:center; margin:24px 0; }
+.risk-route button { background:var(--panel); border:1px solid var(--line2); padding:20px 16px; border-radius:8px; display:flex; flex-direction:column; gap:12px; color:var(--tx); text-align:left; min-height:132px; }
+.risk-route button.on { border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.risk-route button span,.risk-route button small { font-size:12px; color:var(--tx2); }
+.risk-route button b { font-size:17px; }
+.route-arrow { text-align:center; font-size:22px; color:var(--accent); }
+@keyframes sketch-arrive { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:translateY(0); } }
+@keyframes flow-draw { from { stroke-dashoffset:420; } to { stroke-dashoffset:0; } }
+.visual-reveal.is-revealed { animation:sketch-arrive .45s ease-out both; }
+.research-sketch.is-revealed .sketch-building { animation:sketch-arrive .7s ease-out both; }
+.visual-reveal.is-revealed .cash-arrows { stroke-dasharray:420; animation:flow-draw .9s ease-out both; }
+@media(max-width:1100px) { .heading-sketch { width:125px; } .rights-timeline { gap:12px; grid-template-columns:85px 1fr 95px; } }
+@media(max-width:767px) { .heading-sketch { display:none; } .research-sketch .asset-sketch { height:150px; } .concept-board { padding:18px; } .rights-timeline { grid-template-columns:1fr 1fr; } .timeline-cash { grid-column:1/-1; grid-row:2; } .concept-options button { width:100%; text-align:left; } .cash-bridge > button:not(:last-child)::after { content:'↓'; right:24px; top:auto; bottom:-19px; } .cash-bridge { gap:22px; } .risk-route { grid-template-columns:1fr; gap:8px; } .risk-route button { min-height:110px; } .route-arrow { transform:rotate(90deg); } }
+@media(prefers-reduced-motion:reduce) { .visual-reveal.is-revealed,.research-sketch.is-revealed .sketch-building,.visual-reveal.is-revealed .cash-arrows { animation:none; } .cash-bridge > button:hover { transform:none; } }
+/* 总览线稿与正文并列，研究状态独立成横向信息带。 */
+.allocation-overview { align-items:center; gap:22px 36px; }
+.allocation-overview > .research-sketch { margin:0; }
+.allocation-overview > .research-sketch .asset-sketch { height:210px; }
+.allocation-overview > .evidence-status { grid-column:1/-1; border-left:0; border-top:1px solid var(--line); padding:18px 0 0; display:grid; grid-template-columns:1.3fr 1fr; gap:10px 30px; }
+.allocation-overview > .evidence-status dl { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:0; }
+.allocation-overview > .evidence-status p { margin:0; font-size:11px; }
+@media(max-width:1023px) { .allocation-overview > .research-sketch .asset-sketch { height:160px; } }
+@media(max-width:767px) { .allocation-overview > .evidence-status { grid-template-columns:1fr; } .allocation-overview > .evidence-status dl { grid-template-columns:1fr 1fr; } }
