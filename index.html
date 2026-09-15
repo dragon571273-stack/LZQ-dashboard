@@ -31,7 +31,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 </script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="research-layout.css?v=20260914-2">
-<link rel="stylesheet" href="workspace.css?v=20260915-4">
+<link rel="stylesheet" href="workspace.css?v=20260915-visual-2">
 </head>
 <body>
 <a class="skip-link" href="#workspaceMain">跳到主要内容</a>
@@ -58,7 +58,15 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
   </div>
 </nav>
 <main id="workspaceMain" tabindex="-1">
-  <header class="workspace-heading"><div><h1 id="workspaceTitle">市场总览</h1><p id="workspaceSubtitle">从全市场表现，到每一项底层资产。</p></div><div class="heading-actions"><span class="market-date"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#activity"></use></svg><span id="workspaceDate">数据加载中</span></span><button class="secondary-button" id="exportMarket"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#download"></use></svg>导出行情</button></div></header>
+  <header class="workspace-heading"><div><h1 id="workspaceTitle">市场总览</h1><p id="workspaceSubtitle">从全市场表现，到每一项底层资产。</p></div><div class="heading-sketch" aria-hidden="true"><svg class="asset-sketch" viewBox="0 0 460 210" role="presentation" aria-label="产业园、仓储与能源设施的建筑概念线稿">
+<g class="sketch-ground"><path d="M18 154 216 52 442 157 250 207Z"/><path d="m48 165 194-99m-147 121 198-98m-150 119 195-97M77 124l222 103M132 96l220 103M184 70l222 103"/></g>
+<g class="sketch-building"><path class="sketch-face" d="m149 134 0-91 53-27 0 92Z"/><path class="sketch-shade" d="m202 16 43 21v92l-43-21Z"/><path d="m149 43 43 22 53-28m-53 28v91l-43-22m43 22 53-27M159 51v77m12-71v77m12-71v77m19-78 33-17m-33 33 33-17m-33 33 33-17m-33 33 33-17"/>
+<path class="sketch-face" d="m59 146 0-46 43-22 35 18v47l-43 23Z"/><path class="sketch-shade" d="m94 118 43-22v47l-43 23Z"/><path d="m59 100 35 18m0 0v48m-27-52v21m11-15v21m27-21 22-12m-22 25 22-12m-22 24 22-11"/>
+<path class="sketch-face" d="m247 154 0-34 55-29 68 34v35l-55 28Z"/><path class="sketch-shade" d="m315 154 55-29v35l-55 28Z"/><path d="m247 120 68 34m0 0v34m-56-60v27m14-20v27m14-20v26m14-19v26m25-14 33-17m-33 27 33-17"/>
+<path class="sketch-accent" d="m256 118 45-23 53 27-44 23Z"/><path d="m267 124 45-23m-31 30 44-23m-31 30 44-23m-69-2 53 27"/>
+<path d="M391 149V78m0 0-24-21m24 21 27-14m-27 14-3 32"/><circle cx="391" cy="78" r="3"/>
+<path d="m222 171 16 8 12-6m-136 2 19 10 15-8"/></g>
+<g class="sketch-annotation"><path d="M24 72h75l22 17M292 46h45l18 24"/><circle cx="24" cy="72" r="2"/><circle cx="292" cy="46" r="2"/></g></svg></div><div class="heading-actions"><span class="market-date"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#activity"></use></svg><span id="workspaceDate">数据加载中</span></span><button class="secondary-button" id="exportMarket"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#download"></use></svg>导出行情</button></div></header>
   <div id="subbar" data-cur="pano">
     <div class="sub" id="panoSub">
       <button data-pg="pano" data-v="heatmap" class="on" aria-current="page">行情总览</button>
@@ -473,7 +481,16 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
         <p>产权类以可持续分派及资产价值交叉估值；经营权类以剩余期限现金流计算IRR。保租房可优先进入现金流稳定性筛选，园区、物流及消费需核查续租与租金，能源、公路及数据中心需逐项目验证收入机制。</p>
         <p class="research-caveat">当前尚缺统一口径的逐券远期分派、估值净资产和剩余全周期现金流，不能据价格低位直接判定“全面低估”，也不足以形成可执行的板块超配名单。</p>
       </div>
-      <aside class="evidence-status" aria-label="研究与数据状态">
+      <figure class="research-sketch"><svg class="asset-sketch" viewBox="0 0 460 210" role="img" aria-label="产业园、仓储与能源设施的建筑概念线稿">
+<g class="sketch-ground"><path d="M18 154 216 52 442 157 250 207Z"/><path d="m48 165 194-99m-147 121 198-98m-150 119 195-97M77 124l222 103M132 96l220 103M184 70l222 103"/></g>
+<g class="sketch-building"><path class="sketch-face" d="m149 134 0-91 53-27 0 92Z"/><path class="sketch-shade" d="m202 16 43 21v92l-43-21Z"/><path d="m149 43 43 22 53-28m-53 28v91l-43-22m43 22 53-27M159 51v77m12-71v77m12-71v77m19-78 33-17m-33 33 33-17m-33 33 33-17m-33 33 33-17"/>
+<path class="sketch-face" d="m59 146 0-46 43-22 35 18v47l-43 23Z"/><path class="sketch-shade" d="m94 118 43-22v47l-43 23Z"/><path d="m59 100 35 18m0 0v48m-27-52v21m11-15v21m27-21 22-12m-22 25 22-12m-22 24 22-11"/>
+<path class="sketch-face" d="m247 154 0-34 55-29 68 34v35l-55 28Z"/><path class="sketch-shade" d="m315 154 55-29v35l-55 28Z"/><path d="m247 120 68 34m0 0v34m-56-60v27m14-20v27m14-20v26m14-19v26m25-14 33-17m-33 27 33-17"/>
+<path class="sketch-accent" d="m256 118 45-23 53 27-44 23Z"/><path d="m267 124 45-23m-31 30 44-23m-31 30 44-23m-69-2 53 27"/>
+<path d="M391 149V78m0 0-24-21m24 21 27-14m-27 14-3 32"/><circle cx="391" cy="78" r="3"/>
+<path d="m222 171 16 8 12-6m-136 2 19 10 15-8"/></g>
+<g class="sketch-annotation"><path d="M24 72h75l22 17M292 46h45l18 24"/><circle cx="24" cy="72" r="2"/><circle cx="292" cy="46" r="2"/></g></svg><figcaption>从实体资产，到可持续现金流 <span>概念示意</span></figcaption></figure>
+<aside class="evidence-status" aria-label="研究与数据状态">
         <dl>
           <div><dt>研究核查日</dt><dd>2026-09-14</dd></div>
           <div><dt>行情交易日</dt><dd id="allocationMarketDate">待加载</dd></div>
@@ -494,6 +511,11 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
   <article class="card" id="advRights">
     <h2>估值：两类资产，两套现金流逻辑</h2>
     <p class="note">分派率用于观察当期现金回报，IRR覆盖剩余存续期；两者不可直接排序。上交所2025年报综述也分别列示这两类指标。<a href="#source-2">[2]</a></p>
+<figure class="concept-board rights-concept visual-reveal">
+<figcaption><span class="diagram-kicker">VALUATION MAP</span><h3>同样的分派，不同的价值来源</h3><p>点击资产类型查看研究重点。结构示意，不表示现金流规模或收益预测。</p></figcaption>
+<div class="concept-options" role="group" aria-label="选择资产权利类型"><button class="on" aria-pressed="true" data-right-scene="property">产权类 · 持续经营与资产价值</button><button aria-pressed="false" data-right-scene="concession">经营权类 · 剩余期限与本金回收</button></div>
+<div class="rights-timeline"><div class="timeline-origin"><span>当前买入</span><b>P₀</b></div><div class="timeline-cash"><span>存续期现金分派</span><svg viewBox="0 0 360 86" role="img" aria-label="多期现金分派示意，箭头不代表实际金额"><path class="timeline-axis" d="M8 74H352"/><g class="cash-arrows"><path d="M35 73V24m-6 6 6-6 6 6M90 73V24m-6 6 6-6 6 6M145 73V24m-6 6 6-6 6 6M200 73V24m-6 6 6-6 6 6M255 73V24m-6 6 6-6 6 6M310 73V24m-6 6 6-6 6 6"/></g></svg><small>t₁ → t₂ → … → tₙ</small></div><div class="timeline-terminal"><span id="terminalLabel">期末价值</span><b id="terminalValue">需评估</b></div></div>
+<p class="diagram-explanation" id="rightsExplanation" aria-live="polite">产权类：以可持续分派与资产价值交叉核验，仍须考虑土地剩余年限、资本开支和退出假设。</p></figure>
     <div class="valuation-grid">
       <div><h3>产权类</h3>
         <p>先剔除一次性释放，估计未来12个月每份可持续分派；再用资产层NOI、资本开支及退出价值评估基金权益价值。</p>
@@ -519,12 +541,13 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
   <article class="card" id="advCash">
     <h2>现金流：从账面利润追到每份分派</h2>
     <p class="note">基础设施基金年度分配比例不低于年度可供分配金额的90%；该要求不等于固定收益承诺，也不等于收入或净利润的90%。<a href="#source-1">[1]</a></p>
-    <div class="cash-bridge" aria-label="现金流核查顺序">
-      <div><b>经营收益</b><p>租金 / 收费收入<br>核查同口径量价与成本</p></div>
-      <div><b>实际回款</b><p>应收账款、预收款<br>区分当期经营与跨期收付</p></div>
-      <div><b>可分配现金</b><p>维护开支、债务服务、预留<br>逐项核对披露调整表</p></div>
-      <div><b>每份分派</b><p>分派金额与对应份额<br>识别扩募、期间及除权影响</p></div>
+<div class="diagram-kicker cash-kicker">FOLLOW THE CASH · 点击节点逐项核查</div>    <div class="cash-bridge visual-reveal" aria-label="现金流核查顺序">
+      <button type="button" data-cash-step="0" aria-pressed="true" class="on"><span class="flow-number">01</span><b>经营收益</b><p>租金 / 收费收入<br>核查同口径量价与成本</p></button>
+      <button type="button" data-cash-step="1" aria-pressed="false"><span class="flow-number">02</span><b>实际回款</b><p>应收账款、预收款<br>区分当期经营与跨期收付</p></button>
+      <button type="button" data-cash-step="2" aria-pressed="false"><span class="flow-number">03</span><b>可分配现金</b><p>维护开支、债务服务、预留<br>逐项核对披露调整表</p></button>
+      <button type="button" data-cash-step="3" aria-pressed="false"><span class="flow-number">04</span><b>每份分派</b><p>分派金额与对应份额<br>识别扩募、期间及除权影响</p></button>
     </div>
+<p id="cashExplanation" class="diagram-explanation" aria-live="polite">经营收益：先核查收入与经营成本的同口径变化，再判断利润是否有现金支持。</p>
     <p>会计折旧摊销可形成非现金调整，但维护更新支出仍会消耗现金。不得在披露可供分配金额之外再次机械加回折旧；投资人应另行建立“披露金额—一次性项目—可持续水平”的调节表。</p>
     <details class="research-detail" open><summary>披露实例：达成预测不等于当前价格具有吸引力</summary>
       <p>凯德消费REIT在2026年8月31日的中报解读中披露：可供分配金额5,303.75万元，预测完成率103.33%；期末出租率97.27%，租金收缴率98.53%。其年化分派率4.68%采用<b>发行价</b>口径。<a href="https://origin.clcreit.com/news/2026-h1" target="_blank" rel="noopener">运营披露原文 [3]</a></p>
@@ -559,6 +582,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
   <article class="card" id="advRisk">
     <h2>风险监测：把风险映射到现金流、价格和退出</h2>
     <p class="note">先记录基准预测与组合限额，再判断偏离是否需要行动。以下为研究流程，具体阈值由投资授权、持有期限与风险预算确定。</p>
+    <figure class="concept-board risk-concept visual-reveal"><figcaption><span class="diagram-kicker">RISK TRANSMISSION</span><h3>把风险追踪到组合结果</h3><p>选择一个传导环节，查看应跟踪的变量。</p></figcaption><div class="risk-route" role="group" aria-label="风险传导路径"><button class="on" data-risk-step="0" aria-pressed="true"><span>01 / 资产运营</span><b>量 · 价 · 回款</b><small>出租、收费、成本</small></button><span class="route-arrow" aria-hidden="true">→</span><button data-risk-step="1" aria-pressed="false"><span>02 / 估值传导</span><b>现金流 × 折现</b><small>期限、利率、风险溢价</small></button><span class="route-arrow" aria-hidden="true">→</span><button data-risk-step="2" aria-pressed="false"><span>03 / 组合约束</span><b>集中度 · 退出</b><small>风险预算与成交容量</small></button></div><p id="riskExplanation" class="diagram-explanation" aria-live="polite">资产运营：观察量价、收缴与维护支出的变化，识别其对未来可分派现金的影响。</p></figure>
     <div class="table-scroll"><table class="matrix research-table"><thead><tr><th scope="col">风险</th><th scope="col">观测证据 / 频率</th><th scope="col">触发复核的情形</th><th scope="col">应对动作</th></tr></thead><tbody>
       <tr><td>分派下修</td><td>同店NOI、收缴与应收账龄；按季，重大公告即时。</td><td>经营偏离持续且无法由季节性解释，或分派依靠一次性释放维持。</td><td>重估未来每份分派；暂停基于旧预测加仓，价格未补偿损失时降配。</td></tr>
       <tr><td>利率与溢价</td><td>同期限国债、同类资产收益要求；每日 / 每周。</td><td>现金流不变而要求回报率上升，或现金流下修与风险溢价扩大同时发生。</td><td>分别冲击贴现率与现金流，按组合损失预算调整；不使用统一“2%减仓线”。</td></tr>
@@ -641,8 +665,8 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 
 <script src="ui-utils.js" defer></script>
 <script src="lib/echarts-custom.min.js" defer></script>
-<script src="workspace.js?v=20260915-4" defer></script>
-<script src="app.js?v=20260915-4" defer></script>
-<script src="allocation-tools.js?v=20260915-4" defer></script>
+<script src="workspace.js?v=20260915-visual-2" defer></script>
+<script src="app.js?v=20260915-visual-2" defer></script>
+<script src="allocation-tools.js?v=20260915-visual-2" defer></script>
 </body>
 </html>
