@@ -31,43 +31,49 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 </script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="research-layout.css?v=20260914-2">
+<link rel="stylesheet" href="workspace.css?v=20260915-4">
 </head>
 <body>
-<nav id="topbar" data-cur="pano">
-  <div class="tb-main">
-    <div class="tb-brand"><img src="icons/lion-v3.png" alt="Lion"><span>公募REITs投研平台</span></div>
-    <div id="tbNav">
-      <button data-pg="pano" class="on">市场全景信息</button>
-      <button data-pg="research">多维研究分析</button>
-      <button data-pg="advice">配置建议与风险</button>
-      <button data-pg="inst">机构间REITs</button>
-      <span class="ink"></span>
-    </div>
-    <div class="tb-search">
-      <input id="gSearch" placeholder="搜索个券名称 / 代码" autocomplete="off">
-      <div class="tb-drop" id="gSearchDrop" hidden></div>
-    </div>
-    <span class="theme-sw" id="themeSw" role="group" aria-label="主题切换">
-      <button data-t="light" title="白天模式" aria-label="白天模式">☀️</button>
-      <button data-t="eye" title="护眼模式" aria-label="护眼模式">🌿</button>
-      <button data-t="dark" title="夜晚模式" aria-label="夜晚模式">🌙</button>
-    </span>
+<a class="skip-link" href="#workspaceMain">跳到主要内容</a>
+<div class="sidebar-scrim" id="sidebarScrim" hidden></div>
+<aside id="sidebar" aria-label="工作台导航">
+  <a class="workspace-brand" href="./"><img src="icons/lion-v3.png" alt="Lion" width="40" height="40"><span><b>REITs</b><small>机构投研工作台</small></span></a>
+  <div class="sidebar-section-label">研究空间</div>
+  <nav id="tbNav" aria-label="主导航">
+<button data-pg="pano" class="on" aria-current="page"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#layout-dashboard"></use></svg><span>市场总览</span><svg class="ui-icon nav-chevron" aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#chevron-right"></use></svg></button>
+<button data-pg="research"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#chart-no-axes-combined"></use></svg><span>研究分析</span><svg class="ui-icon nav-chevron" aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#chevron-right"></use></svg></button>
+<button data-pg="advice"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#shield-check"></use></svg><span>配置与风险</span><svg class="ui-icon nav-chevron" aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#chevron-right"></use></svg></button>
+<button data-pg="inst"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#building-2"></use></svg><span>机构间市场</span><svg class="ui-icon nav-chevron" aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#chevron-right"></use></svg></button>
+</nav><div class="sidebar-section-label">快捷访问</div>
+  <div class="sidebar-shortcuts"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#file-text"></use></svg><button data-jump-view="news">新闻与公告</button><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#layers"></use></svg><button data-jump-view="detail">全部上市REITs</button></div>
+  <div class="sidebar-bottom"><div class="sidebar-data"><span>数据与研究</span><p>行情按交易日更新<br>研究结论独立核验</p><a href="#advSources">查看研究依据 <svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-up-right"></use></svg></a></div><span class="sidebar-market">中国公募REITs · C-REITs</span></div>
+</aside>
+<div id="workspace">
+<nav id="topbar" data-cur="pano" aria-label="工作区工具">
+  <div class="workspace-topline">
+    <button class="icon-button mobile-menu" id="sidebarToggle" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#menu"></use></svg></button>
+    <span class="workspace-context">公募REITs<span class="context-divider">/</span><span id="workspaceLocation">市场总览</span></span>
+    <div class="tb-search"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#search"></use></svg><label for="gSearch" class="sr-only">搜索个券名称或代码</label><input id="gSearch" placeholder="搜索资产名称或代码" autocomplete="off"><kbd>⌘ K</kbd><div class="tb-drop" id="gSearchDrop" hidden></div></div>
+    <span class="theme-sw" id="themeSw" role="group" aria-label="主题切换"><button data-t="light" title="白天模式" aria-label="白天模式"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#sun"></use></svg></button><button data-t="eye" title="护眼模式" aria-label="护眼模式"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#leaf"></use></svg></button><button data-t="dark" title="夜晚模式" aria-label="夜晚模式"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#moon"></use></svg></button></span>
   </div>
+</nav>
+<main id="workspaceMain" tabindex="-1">
+  <header class="workspace-heading"><div><h1 id="workspaceTitle">市场总览</h1><p id="workspaceSubtitle">从全市场表现，到每一项底层资产。</p></div><div class="heading-actions"><span class="market-date"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#activity"></use></svg><span id="workspaceDate">数据加载中</span></span><button class="secondary-button" id="exportMarket"><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#download"></use></svg>导出行情</button></div></header>
   <div id="subbar" data-cur="pano">
     <div class="sub" id="panoSub">
-      <button data-pg="pano" data-v="heatmap" class="on" aria-current="page">行情总览与热力图</button>
-      <button data-pg="pano" data-v="news">重点事件信息流</button>
-      <button data-pg="pano" data-v="proj-ndrc">发改委推荐项目清单</button>
-      <button data-pg="pano" data-v="proj-sse">上交所受理项目清单</button>
-      <button data-pg="pano" data-v="proj-szse">深交所项目清单</button>
-      <button data-pg="pano" data-v="proj-commercial">商业不动产REIT受理项目清单</button>
+      <button data-pg="pano" data-v="heatmap" class="on" aria-current="page">行情总览</button>
+      <button data-pg="pano" data-v="news">新闻与公告</button>
+      <button data-pg="pano" data-v="proj-ndrc">发改委推荐</button>
+      <button data-pg="pano" data-v="proj-sse">上交所申报</button>
+      <button data-pg="pano" data-v="proj-szse">深交所申报</button>
+      <button data-pg="pano" data-v="proj-commercial">商业不动产申报</button>
     </div>
     <div class="sub" id="researchSub">
-      <button data-v="review" class="on" aria-current="page">市场阶段复盘</button>
-      <button data-v="strategy">策略分类研究</button>
-      <button data-v="cycle">周期耦合分析</button>
+      <button data-v="review" class="on" aria-current="page">市场复盘</button>
+      <button data-v="strategy">策略分类</button>
+      <button data-v="cycle">周期分析</button>
       <button data-v="track">赛道透视</button>
-      <button data-v="corr">大类资产相关性</button>
+      <button data-v="corr">资产相关性</button>
       <button data-v="detail">个券透视</button>
       <button data-v="sector">板块轮动</button>
       <button data-v="signal">策略信号</button>
@@ -77,7 +83,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
       <button data-pg="advice" data-scroll="advRights">分权估值</button>
       <button data-pg="advice" data-scroll="advCash">现金流质量</button>
       <button data-pg="advice" data-scroll="advSectors">板块筛选</button>
-      <button data-pg="advice" data-scroll="advRisk">风险与压力测试</button>
+      <button data-pg="advice" data-scroll="advRisk">风险压力测试</button>
       <button data-pg="advice" data-scroll="advSources">研究依据</button>
     </div>
     <div class="sub" id="instSub">
@@ -88,10 +94,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
       <button data-inst-type="产权类">产权类</button>
       <button data-inst-type="经营权类">经营权类</button>
     </div>
-  </div>
-</nav>
-<div class="data-meta" id="meta">数据加载中…</div>
-<main>
+  </div><div class="data-meta" id="meta">数据加载中…</div>
 <div class="page" id="pg-pano">
 
 <div class="kpis" id="kpis"></div>
@@ -100,7 +103,11 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 
 <!-- ============ 第一段：全景热力图 ============ -->
 <section class="view" id="v-heatmap">
-  <div class="card">
+  <div class="market-analysis-grid">
+    <article class="card trend-panel"><div class="panel-heading"><div><h2>市场走势</h2><p>全市场等权价格指数 · 区间起点 = 100</p></div><div class="segmented" id="workspaceRange" aria-label="指数观察窗口"><button data-days="20">20日</button><button data-days="60" class="on" aria-pressed="true">60日</button><button data-days="250">250日</button></div></div><div class="trend-headline"><strong id="workspaceTrendValue">—</strong><span id="workspaceTrendChange"></span><span class="trend-period" id="workspaceTrendPeriod">正在载入历史序列</span></div><div id="workspaceTrend" role="img" aria-label="等权价格指数走势图"><p class="chart-placeholder">历史序列加载中…</p></div><details class="chart-data-details"><summary>查看图表数据</summary><div class="table-scroll"><table id="workspaceTrendTable"><thead><tr><th>日期</th><th>区间归一化指数</th></tr></thead><tbody></tbody></table></div></details></article>
+    <article class="card sector-panel"><div class="panel-heading"><div><h2>板块表现</h2><p>板块内等权日涨跌幅</p></div><span class="neutral-label">日涨跌</span></div><div id="workspaceSectors" class="sector-comparison"><p class="chart-placeholder">板块数据加载中…</p></div></article>
+  </div>
+  <div class="market-detail-grid"><div class="card" id="heatmapCard">
     <h2>资产类别全景热力图</h2>
     <p class="note">色块大小 ∝ 成交额（日涨跌=当日，5日/20日=区间日均）· 颜色 = 成交额加权区间涨跌幅 · 区间：<span id="hmRangeLabel">日涨跌</span></p>
     <div class="filters" id="hmSectorChips" style="margin-bottom:8px"></div>
@@ -112,8 +119,8 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
     </div>
     <div id="hmSummary" style="display:flex;justify-content:space-between;font-size:12.5px;color:var(--tx2);margin-bottom:10px;font-variant-numeric:tabular-nums"></div>
     <div id="hmCrumb" style="display:flex;align-items:center;gap:10px;margin-bottom:10px"></div>
-    <div id="treemap" style="position:relative;width:100%;height:480px"></div>
-  </div>
+    <div id="treemap" style="position:relative;width:100%;height:400px"></div>
+  </div><aside class="market-side-stack"><article class="card"><div class="panel-heading"><div><h2>市场观察</h2><p>价格位置与宏观环境</p></div></div><div id="marketContext"></div></article><article class="card"><div class="panel-heading"><div><h2>活跃资产</h2><p>按当日成交额排序</p></div></div><div id="workspaceActive"></div><button class="text-button" data-jump-view="detail">全部上市REITs <svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-right"></use></svg></button></article></aside></div>
 </section>
 
 <section class="view" id="v-news" hidden>
@@ -452,7 +459,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 </div><!-- /pg-research -->
 
 <div class="page" id="pg-advice" hidden>
-<header class="research-header">
+<header class="research-header" hidden>
   <h1>配置建议与风险</h1>
   <p>以可持续现金流定价，以风险预算决定配置。专业投资者研究框架。</p>
 </header>
@@ -461,7 +468,8 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
     <div class="allocation-overview">
       <div>
         <span class="research-label">配置结论 · 条件性判断</span>
-        <h2 id="adviceHeadline" class="thesis">优先验证现金流，再判断价格是否提供足够补偿。</h2>
+        <h2 id="adviceHeadline" class="thesis">先验证现金流，
+再判断配置价值。</h2>
         <p>产权类以可持续分派及资产价值交叉估值；经营权类以剩余期限现金流计算IRR。保租房可优先进入现金流稳定性筛选，园区、物流及消费需核查续租与租金，能源、公路及数据中心需逐项目验证收入机制。</p>
         <p class="research-caveat">当前尚缺统一口径的逐券远期分派、估值净资产和剩余全周期现金流，不能据价格低位直接判定“全面低估”，也不足以形成可执行的板块超配名单。</p>
       </div>
@@ -481,7 +489,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
       <li><b>增加配置</b><p>经营数据兑现、价格仍有安全边际，且成交容量允许有序建仓。</p></li>
       <li><b>降低配置</b><p>核心现金流假设被证伪，或风险集中度、退出天数突破组合限额。</p></li>
     </ul>
-  </article>
+<div class="research-entry-grid"><button class="research-entry" data-advice-target="advRights"><span class="entry-number">01</span><b>分权估值</b><p>产权看持续分派，经营权看全周期回收。</p><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-up-right"></use></svg></button><button class="research-entry" data-advice-target="advCash"><span class="entry-number">02</span><b>现金流质量</b><p>从经营收益，核查到每份实际分派。</p><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-up-right"></use></svg></button><button class="research-entry" data-advice-target="advSectors"><span class="entry-number">03</span><b>板块筛选</b><p>把配置条件与证伪信号放在一起比较。</p><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-up-right"></use></svg></button><button class="research-entry" data-advice-target="advRisk"><span class="entry-number">04</span><b>风险压力测试</b><p>查看现金流与贴现率变化的联合影响。</p><svg class="ui-icon " aria-hidden="true"><use href="icons/workspace/lucide.svg?v=1#arrow-up-right"></use></svg></button></div>  </article>
 
   <article class="card" id="advRights">
     <h2>估值：两类资产，两套现金流逻辑</h2>
@@ -629,10 +637,12 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
     <p class="last">最后，……必须牢记一切皆可瞬息万变。<span class="cite">—— 霍华德·马克斯 《无人知晓》</span></p>
   </div>
 </footer>
+</div><!-- /workspace -->
 
 <script src="ui-utils.js" defer></script>
 <script src="lib/echarts-custom.min.js" defer></script>
-<script src="app.js?v=20260914-2" defer></script>
-<script src="allocation-tools.js?v=20260914-2" defer></script>
+<script src="workspace.js?v=20260915-4" defer></script>
+<script src="app.js?v=20260915-4" defer></script>
+<script src="allocation-tools.js?v=20260915-4" defer></script>
 </body>
 </html>

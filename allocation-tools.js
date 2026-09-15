@@ -33,7 +33,7 @@
   // 按实际导航高度设置章节偏移，适配窄屏换行与字体缩放。
   function updateAnchorOffset() {
     var header = doc.getElementById("topbar");
-    doc.documentElement.style.setProperty("--sticky-offset", (header.getBoundingClientRect().height + 20) + "px");
+    doc.documentElement.style.setProperty("--sticky-offset", (header.getBoundingClientRect().height + doc.getElementById("subbar").getBoundingClientRect().height + 20) + "px");
   }
   updateAnchorOffset();
   if (root.ResizeObserver) new ResizeObserver(updateAnchorOffset).observe(doc.getElementById("topbar"));
@@ -101,6 +101,7 @@
     doc.querySelectorAll("#adviceSub button").forEach(function (button) {
       button.addEventListener("click", function () {
         var section = doc.getElementById(button.getAttribute("data-scroll"));
+        if (section && root.ReitsWorkspace) root.ReitsWorkspace.selectAdviceForTarget(section);
         if (section) section.scrollIntoView();
         doc.querySelectorAll("#adviceSub button").forEach(function (other) {
           other.classList.toggle("on", other === button);

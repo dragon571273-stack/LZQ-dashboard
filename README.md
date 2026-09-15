@@ -108,3 +108,14 @@ npm i echarts@5.6.0 esbuild
 cp <仓库>/scripts/echarts-custom-entry.js entry.js
 npx esbuild entry.js --bundle --minify --format=iife --outfile=lib/echarts.min.js
 ```
+
+### 机构投研工作台改版（2026-09-15）
+
+本轮依据 UI UX Pro Max 的 Data-Dense Dashboard 设计方向重构全站。主导航迁移至侧栏，分析任务使用顶部页签；市场总览增加真实等权价格序列、板块比较与成交活跃资产，配置研究按专题展示。手机端使用抽屉导航，并支持键盘关闭、焦点约束与宽表格局部滚动。
+
+- `workspace.css`：统一工作台、主题及响应式布局。
+- `workspace.js`：导航、历史走势、只读 CSV 导出与行情组件。历史走势使用 `data_research.json.series.market`，所选区间起点归一为 100，与中证 REITs 全收益指数分别标注。
+- `design-system/reits-workspace/MASTER.md`：设计检索、适配判断与组件约束。
+- `docs/review-20260915/`：检查记录和桌面、移动端截图。
+
+行情数据文件、采集脚本与财务模型未修改；已核验的配置研究正文及来源保留。验证：`npm test`。

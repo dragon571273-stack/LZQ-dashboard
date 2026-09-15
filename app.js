@@ -244,11 +244,11 @@ window.__DATA_READY.then(function () {
       '日涨跌 ' + idxPct + ' · ' + (mktIdx && mktIdx.code ? mktIdx.code : "待 iFinD 接入"), " kpi-idx") +
     '<div class="kpi"><div class="k" title="全市场等权日涨跌">全市场等权日涨跌</div>' +
       '<div class="v num ' + avgCls + '">' + fmt(avg) + '</div>' +
-      '<div class="s num" title="' + D.count + ' 只 · 近250日等权">' + D.count + ' 只 · 近250日等权</div></div>' +
+      '<div class="s num" title="' + D.count + ' 只 · 当日等权平均">' + D.count + ' 只 · 当日等权平均</div></div>' +
     kpiCard("市场宽度（涨/跌家数）", upN + " / " + downN,
       (breadth == null ? "—" : breadth + "% 上涨") + " · 平 " + flatN + " 只") +
     kpiCard("市场总成交额", fmtVol(totAmt), "全市场 " + D.count + " 只") +
-    kpiCard("平均历史价格分位", avgRank == null ? "—" : formatPercentile(avgRank), "价格位置 · 低=相对便宜") +
+    kpiCard("平均历史价格分位", avgRank == null ? "—" : formatPercentile(avgRank), "价格历史位置 · 非估值分位") +
     kpiCard("10Y 国债收益率", bond10y == null ? "—" : bond10y.toFixed(2) + "%", "无风险利率锚（债性定价分母）") +
     kpiCard("资产重估状态", rv.stage || "—", (rv.score != null ? rv.score : "—") + "/4 项成立 · 每日更新");
   $("kpis").innerHTML = kpiCards;
@@ -1178,7 +1178,7 @@ LAZY.research.push(function () {
     function apply(t) {
       document.documentElement.dataset.theme = t;
       localStorage.setItem("rd-theme", t);
-      document.querySelectorAll("#themeSw button").forEach(function (x) { x.classList.toggle("on", x.dataset.t === t); });
+      document.querySelectorAll("#themeSw button").forEach(function (x) { x.classList.toggle("on", x.dataset.t === t); x.setAttribute("aria-pressed", String(x.dataset.t === t)); });
       var mc = document.querySelector('meta[name="theme-color"]');
       if (mc) mc.content = t === "dark" ? "#0a0e14" : t === "eye" ? "#e9f2e2" : "#f8fafc";
       renderAllCharts();
@@ -1283,6 +1283,7 @@ LAZY.research.push(function () {
       }
       $("subbar").dataset.cur = pg;
       $("topbar").dataset.cur = pg;
+      if (window.ReitsWorkspace) window.ReitsWorkspace.pageChanged(pg);
       setActiveNav(document.querySelectorAll("#tbNav > button"), btn);
       var ink = document.querySelector("#tbNav .ink");
       if (ink) { ink.style.left = btn.offsetLeft + "px"; ink.style.width = btn.offsetWidth + "px"; }
@@ -1325,7 +1326,8 @@ LAZY.research.push(function () {
           showPage(btn.dataset.pg, true);
           setActiveNav(btn.parentElement.querySelectorAll("button"), btn);
           var t = document.getElementById(btn.dataset.scroll);
-          if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (t && window.ReitsWorkspace) window.ReitsWorkspace.selectAdviceForTarget(t);
+          if (t) window.scrollTo({ top: 0, behavior: "auto" });
           var showKpi = btn.dataset.scroll === "v-heatmap";
           $("kpis").style.display = showKpi ? "" : "none";
           return;
@@ -1373,6 +1375,7 @@ LAZY.research.push(function () {
     var target = document.getElementById(window.location.hash.slice(1));
     if (!target || !target.closest("#pg-advice")) return;
     showPage("advice", true);
+    if (window.ReitsWorkspace) window.ReitsWorkspace.selectAdviceForTarget(target);
     requestAnimationFrame(function () { target.scrollIntoView({ behavior: "auto", block: "start" }); });
   }
   window.addEventListener("hashchange", openResearchAnchor);

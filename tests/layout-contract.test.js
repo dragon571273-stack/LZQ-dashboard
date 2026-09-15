@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 // 重构后：HTML 骨架在 index.html，样式在 styles.css，逻辑在 app.js；契约检查针对三者合集
-const html = ["index.html", "styles.css", "research-layout.css", "app.js", "allocation-tools.js"]
+const html = ["index.html", "styles.css", "research-layout.css", "app.js", "allocation-tools.js", "workspace.css", "workspace.js"]
   .map((f) => fs.readFileSync(path.join(__dirname, "..", f), "utf8"))
   .join("\n");
 
@@ -56,11 +56,11 @@ test("primary navigation preserves page scroll positions", () => {
   assert.match(html, /behavior: "auto"/);
 });
 
-test("primary and secondary navigation share one sticky shell", () => {
-  assert.match(html, /<nav id="topbar"[^>]*>[\s\S]*<div id="subbar"[\s\S]*<\/nav>\s*<div class="data-meta" id="meta">/);
-  assert.match(html, /#topbar\s*\{[^}]*position:\s*sticky/s);
-  assert.doesNotMatch(html, /#subbar\s*\{[^}]*position:\s*sticky/s);
-  assert.doesNotMatch(html, /#subbar\s*\{[^}]*(?:^|;)\s*top:\s*\d+px/ms);
+test("workspace separates primary navigation from sticky analysis tabs", () => {
+  assert.match(html, /<aside id="sidebar"/);
+  assert.match(html, /id="sidebarToggle"/);
+  assert.match(html, /#subbar\s*\{[^}]*position:\s*sticky/s);
+  assert.match(html, /prefers-reduced-motion/);
 });
 
 test("secondary navigation labels do not use numeric prefixes", () => {
