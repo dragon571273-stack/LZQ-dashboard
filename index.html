@@ -31,7 +31,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 </script>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="research-layout.css?v=20260914-2">
-<link rel="stylesheet" href="workspace.css?v=20260915-visual-2">
+<link rel="stylesheet" href="workspace.css?v=20260915-tender-1">
 </head>
 <body>
 <a class="skip-link" href="#workspaceMain">跳到主要内容</a>
@@ -135,6 +135,7 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
   <div class="card" id="newsCard">
     <h2>近期重点事件信息流</h2>
     <p class="note">政策监管 · 机构间REITs · 招投标 · 拟上市与申报 · 上市项目公告 · 扩募动态 · 市场观点 · 来源：东方财富新闻检索 / 微信公众号（搜狗微信）/ 中国招标投标公共服务平台，每日更新 · 近 30 日</p>
+    <div id="tenderStatus" class="tender-status" role="status">招投标来源状态加载中…</div>
     <div class="filters" id="newsFilter"></div>
     <div id="newsFeed" style="max-height:520px;overflow:auto"></div>
   </div>
@@ -665,8 +666,9 @@ window.__DATA_READY = fetch("data.json").then(function (r) {
 
 <script src="ui-utils.js" defer></script>
 <script src="lib/echarts-custom.min.js" defer></script>
-<script src="workspace.js?v=20260915-visual-2" defer></script>
-<script src="app.js?v=20260915-visual-2" defer></script>
-<script src="allocation-tools.js?v=20260915-visual-2" defer></script>
+<script src="workspace.js?v=20260915-tender-1" defer></script>
+<script src="tender-feed.js?v=20260915-1" defer></script>
+<script src="app.js?v=20260915-tender-1" defer></script>
+<script src="allocation-tools.js?v=20260915-tender-1" defer></script>
 </body>
 </html>

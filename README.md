@@ -119,3 +119,17 @@ npx esbuild entry.js --bundle --minify --format=iife --outfile=lib/echarts.min.j
 - `docs/review-20260915/`：检查记录和桌面、移动端截图。
 
 行情数据文件、采集脚本与财务模型未修改；已核验的配置研究正文及来源保留。验证：`npm test`。
+
+
+### 招投标独立定时更新
+
+`招投标独立更新` 工作流每天北京时间 **09:20、18:20** 运行，覆盖周末，GitHub 调度可能延迟；可在 Actions 手动运行。与行情任务解耦，不必等待行情、微信或项目列表采集完成。
+
+- 主源：用户指定的 https://ctbpsp.com/#/bulletinList?keyWords=reits ，正常浏览器读取公开可见列表，遇到访问验证、登录限制或模糊遮罩时记录失败。
+- 官方备用：中国招标投标公共服务平台 HTTPS 公告搜索列表；按实际总记录数翻页，不能使用页面旧版硬编码的 15 条/页假设，也不能遇到旧公告即停止。
+- 补充：深圳环水集团官网采购首页的最新公告；仅作局部补充，不代表全国或完整历史覆盖。
+- 输出：`tenders.json`；展示最近 90 天有效公告。以完整标题与公告日期去重，不截取标题前缀；抓取失败保留历史并记录来源状态，不刷新失败来源的最近成功时间。
+- 网站的“新闻与公告 → 招投标”显示主源状态、各来源核查时间、最新公告日期。源站无新公告不等于抓取失败；核查超过 30 小时会提示检查任务。
+- 全部来源失败时先尝试发布失败状态，再令工作流失败；GITHUB_TOKEN 推送后显式请求 GitHub Pages 构建，并同步 Cloudflare 镜像。
+
+本地验证：`pip install -r requirements-tenders.txt`；`python -m playwright install chromium`；`python -m unittest discover -s tests -p 'test_tenders.py'`。采集试运行可用 `python fetch_tenders.py --output /tmp/tenders-check.json`，不覆盖现有文件。

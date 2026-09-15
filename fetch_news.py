@@ -200,8 +200,8 @@ def main():
                 "url": a.get("url", ""),
                 "tag": classify(title, content),
             })
-    # 并入微信公众号文章与招标投标平台公告（新站 WebBridge 优先，旧站接口兜底）
-    for extra in fetch_sogou_weixin(30) + fetch_ctbpsp_webbridge(30) + fetch_cebpubservice(30):
+    # 并入公众号；招投标由独立 fetch_tenders.py 定时更新，前端合并。
+    for extra in fetch_sogou_weixin(30):
         if extra["code"] in seen:
             continue
         seen.add(extra["code"])
