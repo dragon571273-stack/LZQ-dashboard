@@ -15,7 +15,7 @@
     var host=document.getElementById('tenderStatus');
     host.replaceChildren();
     var line=document.createElement('p');
-    line.textContent='招投标：'+(payload.status==='ok'?'主源已核查':payload.status==='degraded'?'主源未完整取得，备用源补充':'本轮抓取失败，保留历史公告')+' · 最新公告 '+(payload.latestBulletinDate||'暂无')+' · 核查 '+String(payload.checkedAt||'未提供').replace('T',' ').slice(0,16)+'（北京时间）';
+    line.textContent='招投标：'+(payload.status==='ok'?'主源已核查':payload.status==='degraded'?'主源未完整取得，部分来源可用':'本轮抓取失败，保留历史公告')+' · 最新公告 '+(payload.latestBulletinDate||'暂无')+' · 核查 '+String(payload.checkedAt||'未提供').replace('T',' ').slice(0,16)+'（北京时间）';
     host.append(line);
     var details=document.createElement('details'),summary=document.createElement('summary');
     summary.textContent='查看数据来源与更新状态';details.append(summary);

@@ -41,6 +41,12 @@ class TenderTests(unittest.TestCase):
         self.assertEqual(p['sources'][0]['lastSuccessAt'],None)
         self.assertEqual(p['sources'][1]['count'],1)
 
+    def test_empty_local_supplement_cannot_mask_national_source_failure(self) -> None:
+        sources=[{'id':'ctbpsp','status':'failed','items':[]},{'id':'ceb','status':'failed','items':[]},{'id':'szwater','status':'ok','items':[]}]
+        p=ft.build_payload({},sources,'2026-09-15T18:20:00+08:00')
+        self.assertEqual(p['status'],'failed')
+        self.assertIsNone(p['lastSuccessAt'])
+
     def test_no_unverified_future_dates(self) -> None:
         rows=[self.item('REITs招标公告'),dict(self.item('REITs中标公告'),date='2027-01-01')]
         self.assertEqual(len(ft.merge_items([],rows,date(2026,9,15))),1)

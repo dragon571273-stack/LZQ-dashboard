@@ -208,7 +208,8 @@ def build_payload(previous: dict[str,Any], results: list[dict[str,Any]], checked
         sources.append({k:v for k,v in dict(result,name=SOURCE_NAMES[result['id']],checkedAt=checked,
             count=len(fresh),latestBulletinDate=max((x['date'] for x in fresh),default=None),
             lastSuccessAt=checked if successful else old.get('lastSuccessAt')).items() if k!='items'})
-    success = any(x['status']=='ok' for x in sources)
+    # 局部补充源无命中，不能掩盖两个全国性来源均失效。
+    success = any(x['status']=='ok' and x['id'] in ('ctbpsp','ceb') for x in sources)
     primary = next((x for x in sources if x['id']=='ctbpsp'),{})
     status = 'ok' if primary.get('status')=='ok' else 'degraded' if success or new else 'failed'
     items = merge_items(previous.get('items',[]),new,today)
