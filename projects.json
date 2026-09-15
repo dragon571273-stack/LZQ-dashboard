@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-15 14:11:11",
+ "updated": "2026-09-15 21:44:16",
  "ndrc": [
   {
    "name": "信义能源新能源项目",
@@ -192,6 +192,15 @@
   }
  ],
  "sse": [
+  {
+   "name": "国联安泰华城封闭式商业不动产证券投资基金",
+   "manager": "国联安基金管理有限公司",
+   "assetType": "商业不动产",
+   "status": "已申报",
+   "acceptDate": "",
+   "updateDate": "2026-09-15",
+   "link": "https://www.sse.com.cn/reits/info/index_detail.shtml?audit_id=a9ce5e95e078472998cc47ad30846c2b"
+  },
   {
    "name": "国泰海通上实租赁住房封闭式基础设施证券投资基金",
    "manager": "上海国泰海通证券资产管理有限公司",
