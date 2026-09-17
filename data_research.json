@@ -3669,12 +3669,12 @@
  "backtest": {
   "价稳量缩": {
    "d5": {
-    "n": 5563,
+    "n": 5553,
     "avg": -0.25,
     "win": 42.7
    },
    "d20": {
-    "n": 5341,
+    "n": 5331,
     "avg": -0.91,
     "win": 36.2
    }
@@ -3693,50 +3693,50 @@
   },
   "RSI超卖": {
    "d5": {
-    "n": 667,
-    "avg": 0.2,
-    "win": 53.5
+    "n": 666,
+    "avg": 0.22,
+    "win": 53.8
    },
    "d20": {
-    "n": 655,
-    "avg": -0.96,
-    "win": 42.3
+    "n": 654,
+    "avg": -0.97,
+    "win": 42.4
    }
   },
   "成交异动": {
    "d5": {
-    "n": 5116,
+    "n": 5114,
     "avg": -0.14,
     "win": 46.2
    },
    "d20": {
-    "n": 4923,
+    "n": 4921,
     "avg": -0.56,
     "win": 44.0
    }
   },
   "突破250日线": {
    "d5": {
-    "n": 2927,
+    "n": 2926,
     "avg": 0.21,
     "win": 49.8
    },
    "d20": {
-    "n": 2804,
+    "n": 2803,
     "avg": 0.63,
     "win": 49.3
    }
   },
   "单日大跌": {
    "d5": {
-    "n": 240,
+    "n": 239,
     "avg": -0.6,
-    "win": 44.6
+    "win": 44.8
    },
    "d20": {
-    "n": 228,
-    "avg": -2.01,
-    "win": 39.5
+    "n": 227,
+    "avg": -2.02,
+    "win": 39.6
    }
   }
  },
@@ -28344,7 +28344,7 @@
    "amt5": 15297344.0,
    "amt20": 14739909.0,
    "amtRatio": 1.13,
-   "sinceIPO": -33.95,
+   "sinceIPO": -33.86,
    "volAnn": 14.1,
    "histDates": [
     "2025-09-08",
@@ -28850,7 +28850,7 @@
     2.324,
     2.34
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 0,
@@ -28887,8 +28887,8 @@
    "amt5": 1974632.0,
    "amt20": 2114074.0,
    "amtRatio": 0.7,
-   "sinceIPO": -3.49,
-   "volAnn": 14.0,
+   "sinceIPO": -1.84,
+   "volAnn": 13.9,
    "histDates": [
     "2025-09-08",
     "2025-09-09",
@@ -29393,7 +29393,7 @@
     2.077,
     2.075
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -2,
     "sentiment": 0,
@@ -29425,12 +29425,12 @@
     "cross": null
    },
    "rsi14": 51.3,
-   "pctRank": 26.5,
+   "pctRank": 26.4,
    "devMA250": -6.1,
    "amt5": 2765448.0,
    "amt20": 3088008.0,
    "amtRatio": 0.85,
-   "sinceIPO": 25.35,
+   "sinceIPO": 25.02,
    "volAnn": 14.6,
    "histDates": [
     "2025-09-08",
@@ -29936,7 +29936,7 @@
     3.345,
     3.328
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -1,
     "sentiment": 0,
@@ -29968,12 +29968,12 @@
     "cross": "golden"
    },
    "rsi14": 51.3,
-   "pctRank": 26.7,
+   "pctRank": 26.6,
    "devMA250": -7.53,
    "amt5": 1381487.0,
    "amt20": 2252830.0,
    "amtRatio": 1.04,
-   "sinceIPO": 13.94,
+   "sinceIPO": 13.6,
    "volAnn": 16.5,
    "histDates": [
     "2025-09-08",
@@ -30479,7 +30479,7 @@
     2.629,
     2.681
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -2,
     "sentiment": 0,
@@ -31059,7 +31059,7 @@
    "amt5": 151800.0,
    "amt20": 1433221.0,
    "amtRatio": 0.93,
-   "sinceIPO": -28.69,
+   "sinceIPO": -28.53,
    "volAnn": 10.4,
    "histDates": [
     "2025-09-08",
@@ -31565,7 +31565,7 @@
     4.196,
     4.2
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -2,
     "sentiment": -1,
@@ -31602,7 +31602,7 @@
    "amt5": 5109238.0,
    "amt20": 6316579.0,
    "amtRatio": 1.01,
-   "sinceIPO": -26.12,
+   "sinceIPO": -25.23,
    "volAnn": 14.8,
    "histDates": [
     "2025-09-08",
@@ -32108,7 +32108,7 @@
     1.868,
     1.909
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 2,
@@ -32145,7 +32145,7 @@
    "amt5": 6732498.0,
    "amt20": 6257717.0,
    "amtRatio": 1.4,
-   "sinceIPO": -28.06,
+   "sinceIPO": -27.05,
    "volAnn": 14.2,
    "histDates": [
     "2025-09-05",
@@ -32651,7 +32651,7 @@
     1.445,
     1.459
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 1,
     "sentiment": 0,
@@ -32688,7 +32688,7 @@
    "amt5": 3174542.0,
    "amt20": 4308379.0,
    "amtRatio": 1.38,
-   "sinceIPO": -29.08,
+   "sinceIPO": -28.26,
    "volAnn": 13.1,
    "histDates": [
     "2025-09-08",
@@ -33194,7 +33194,7 @@
     2.402,
     2.407
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": -1,
@@ -33231,7 +33231,7 @@
    "amt5": 8605224.0,
    "amt20": 13501029.0,
    "amtRatio": 1.54,
-   "sinceIPO": -46.37,
+   "sinceIPO": -46.42,
    "volAnn": 17.4,
    "histDates": [
     "2025-09-08",
@@ -33737,7 +33737,7 @@
     1.175,
     1.205
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 0,
@@ -33774,7 +33774,7 @@
    "amt5": 2173212.0,
    "amt20": 6774393.0,
    "amtRatio": 1.52,
-   "sinceIPO": -49.32,
+   "sinceIPO": -49.07,
    "volAnn": 17.8,
    "histDates": [
     "2025-09-08",
@@ -34280,7 +34280,7 @@
     0.998,
     1.009
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 0,
@@ -34317,7 +34317,7 @@
    "amt5": 3331384.0,
    "amt20": 3492051.0,
    "amtRatio": 0.72,
-   "sinceIPO": -25.08,
+   "sinceIPO": -25.13,
    "volAnn": 16.8,
    "histDates": [
     "2025-09-08",
@@ -34823,7 +34823,7 @@
     3.353,
     3.429
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": 2,
@@ -35403,7 +35403,7 @@
    "amt5": 1001118.0,
    "amt20": 2720100.0,
    "amtRatio": 1.69,
-   "sinceIPO": -35.45,
+   "sinceIPO": -35.71,
    "volAnn": 14.5,
    "histDates": [
     "2025-09-08",
@@ -35909,7 +35909,7 @@
     1.567,
     1.577
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -1,
     "sentiment": -2,
@@ -35946,7 +35946,7 @@
    "amt5": 2455492.0,
    "amt20": 5190899.0,
    "amtRatio": 1.31,
-   "sinceIPO": -48.29,
+   "sinceIPO": -48.53,
    "volAnn": 15.6,
    "histDates": [
     "2025-09-08",
@@ -36452,7 +36452,7 @@
     1.213,
     1.24
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 1,
     "sentiment": -1,
@@ -37570,12 +37570,12 @@
     "cross": null
    },
    "rsi14": 56.0,
-   "pctRank": 38.3,
+   "pctRank": 38.2,
    "devMA250": -2.0,
    "amt5": 3330767.0,
    "amt20": 4300845.0,
    "amtRatio": 0.63,
-   "sinceIPO": 20.41,
+   "sinceIPO": 19.61,
    "volAnn": 14.3,
    "histDates": [
     "2025-09-08",
@@ -38081,7 +38081,7 @@
     3.937,
     3.952
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": 2,
@@ -38113,12 +38113,12 @@
     "cross": "golden"
    },
    "rsi14": 56.3,
-   "pctRank": 34.9,
+   "pctRank": 34.8,
    "devMA250": -5.06,
    "amt5": 3005673.0,
    "amt20": 4036149.0,
    "amtRatio": 0.8,
-   "sinceIPO": 17.13,
+   "sinceIPO": 16.85,
    "volAnn": 14.8,
    "histDates": [
     "2025-09-05",
@@ -38624,7 +38624,7 @@
     3.86,
     3.883
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": 2,
@@ -38656,12 +38656,12 @@
     "cross": null
    },
    "rsi14": 41.7,
-   "pctRank": 16.6,
+   "pctRank": 16.4,
    "devMA250": -6.4,
    "amt5": 1356836.0,
    "amt20": 2284494.0,
    "amtRatio": 0.84,
-   "sinceIPO": 5.55,
+   "sinceIPO": 6.33,
    "volAnn": 15.9,
    "histDates": [
     "2025-09-08",
@@ -39167,7 +39167,7 @@
     3.191,
     3.193
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -1,
     "sentiment": -1,
@@ -39204,7 +39204,7 @@
    "amt5": 3946223.0,
    "amt20": 5809702.0,
    "amtRatio": 0.72,
-   "sinceIPO": -4.33,
+   "sinceIPO": -3.41,
    "volAnn": 17.2,
    "histDates": [
     "2025-08-28",
@@ -39710,7 +39710,7 @@
     2.62,
     2.632
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 1,
     "sentiment": 0,
@@ -40828,12 +40828,12 @@
     "cross": null
    },
    "rsi14": 69.0,
-   "pctRank": 63.3,
+   "pctRank": 63.2,
    "devMA250": 1.89,
    "amt5": 2835276.0,
    "amt20": 3385084.0,
    "amtRatio": 0.67,
-   "sinceIPO": 12.2,
+   "sinceIPO": 12.23,
    "volAnn": 13.6,
    "histDates": [
     "2025-09-08",
@@ -41339,7 +41339,7 @@
     3.887,
     3.927
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -1,
     "sentiment": 2,
@@ -42153,12 +42153,12 @@
     "cross": null
    },
    "rsi14": 49.2,
-   "pctRank": 31.3,
+   "pctRank": 31.2,
    "devMA250": -6.11,
    "amt5": 6069307.0,
    "amt20": 10025524.0,
    "amtRatio": 0.79,
-   "sinceIPO": 25.81,
+   "sinceIPO": 27.24,
    "volAnn": 12.8,
    "histDates": [
     "2025-09-08",
@@ -42664,7 +42664,7 @@
     9.219,
     9.286
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 0,
@@ -42696,12 +42696,12 @@
     "cross": null
    },
    "rsi14": 54.0,
-   "pctRank": 25.7,
+   "pctRank": 25.6,
    "devMA250": -8.44,
    "amt5": 2123033.0,
    "amt20": 3344201.0,
    "amtRatio": 0.68,
-   "sinceIPO": 17.69,
+   "sinceIPO": 17.66,
    "volAnn": 14.5,
    "histDates": [
     "2025-09-08",
@@ -43207,7 +43207,7 @@
     3.755,
     3.778
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -1,
     "sentiment": 0,
@@ -43239,12 +43239,12 @@
     "cross": "golden"
    },
    "rsi14": 39.1,
-   "pctRank": 21.0,
+   "pctRank": 20.8,
    "devMA250": -19.27,
    "amt5": 4110234.0,
    "amt20": 5382154.0,
    "amtRatio": 1.41,
-   "sinceIPO": 13.38,
+   "sinceIPO": 15.12,
    "volAnn": 17.5,
    "histDates": [
     "2025-09-08",
@@ -43750,7 +43750,7 @@
     3.205,
     3.22
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 1,
     "sentiment": -1,
@@ -45416,8 +45416,8 @@
    "amt5": 2483711.0,
    "amt20": 4777676.0,
    "amtRatio": 0.79,
-   "sinceIPO": -17.88,
-   "volAnn": 15.5,
+   "sinceIPO": -13.53,
+   "volAnn": 15.1,
    "histDates": [
     "2025-09-08",
     "2025-09-09",
@@ -45922,7 +45922,7 @@
     5.371,
     5.407
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 1,
     "sentiment": -1,
@@ -45959,7 +45959,7 @@
    "amt5": 13144668.0,
    "amt20": 14334039.0,
    "amtRatio": 1.25,
-   "sinceIPO": -29.89,
+   "sinceIPO": -30.35,
    "volAnn": 10.5,
    "histDates": [
     "2025-09-08",
@@ -46465,7 +46465,7 @@
     6.829,
     6.81
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": -2,
@@ -46502,7 +46502,7 @@
    "amt5": 1397490.0,
    "amt20": 1889920.0,
    "amtRatio": 0.49,
-   "sinceIPO": -37.33,
+   "sinceIPO": -37.4,
    "volAnn": 16.6,
    "histDates": [
     "2025-09-08",
@@ -47008,7 +47008,7 @@
     4.705,
     4.704
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": -2,
     "sentiment": -1,
@@ -47045,8 +47045,8 @@
    "amt5": 6148560.0,
    "amt20": 6406591.0,
    "amtRatio": 0.86,
-   "sinceIPO": 16.28,
-   "volAnn": 11.1,
+   "sinceIPO": 16.35,
+   "volAnn": 11.2,
    "histDates": [
     "2025-09-08",
     "2025-09-09",
@@ -47551,7 +47551,7 @@
     5.818,
     5.814
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 2,
@@ -58895,12 +58895,12 @@
     "cross": "golden"
    },
    "rsi14": 50.8,
-   "pctRank": 25.9,
+   "pctRank": 25.8,
    "devMA250": -12.35,
    "amt5": 3265831.0,
    "amt20": 4249954.0,
    "amtRatio": 0.68,
-   "sinceIPO": 13.01,
+   "sinceIPO": 13.34,
    "volAnn": 18.6,
    "histDates": [
     "2025-09-08",
@@ -59406,7 +59406,7 @@
     2.639,
     2.65
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": 0,
@@ -59986,7 +59986,7 @@
    "amt5": 5354542.0,
    "amt20": 6549386.0,
    "amtRatio": 0.7,
-   "sinceIPO": -7.24,
+   "sinceIPO": -7.26,
    "volAnn": 10.6,
    "histDates": [
     "2025-09-08",
@@ -60492,7 +60492,7 @@
     9.54,
     9.61
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 2,
     "sentiment": 0,
@@ -61421,7 +61421,7 @@
    "amt5": 3149482.0,
    "amt20": 4206966.0,
    "amtRatio": 0.95,
-   "sinceIPO": -17.13,
+   "sinceIPO": -16.71,
    "volAnn": 11.4,
    "histDates": [
     "2025-09-08",
@@ -61927,7 +61927,7 @@
     3.279,
     3.295
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": -1,
@@ -61964,7 +61964,7 @@
    "amt5": 3198916.0,
    "amt20": 3484781.0,
    "amtRatio": 0.77,
-   "sinceIPO": -17.22,
+   "sinceIPO": -17.23,
    "volAnn": 7.9,
    "histDates": [
     "2025-09-08",
@@ -62470,7 +62470,7 @@
     11.427,
     11.43
    ],
-   "listDays": 501,
+   "listDays": 500,
    "signals": {
     "liquidity": 0,
     "sentiment": 0,
