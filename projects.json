@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-17 20:15:30",
+ "updated": "2026-09-17 22:25:33",
  "ndrc": [
   {
    "name": "上海地产租赁住房新购入项目",
@@ -199,6 +199,15 @@
   }
  ],
  "sse": [
+  {
+   "name": "广发新世界封闭式商业不动产证券投资基金",
+   "manager": "广发基金管理有限公司",
+   "assetType": "商业不动产",
+   "status": "已申报",
+   "acceptDate": "",
+   "updateDate": "2026-09-17",
+   "link": "https://www.sse.com.cn/reits/info/index_detail.shtml?audit_id=cdb91b06f7bd4b88a382d391bfdf687e"
+  },
   {
    "name": "国联安泰华城封闭式商业不动产证券投资基金",
    "manager": "国联安基金管理有限公司",
