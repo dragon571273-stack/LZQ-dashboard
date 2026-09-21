@@ -39,8 +39,7 @@ npm test
 ## 部署
 
 `main` 分支根目录为 GitHub Pages 发布源。推送后由 `pages-build-deployment` 工作流自动发布至：
-
-https://xianhuixu.github.io/reits-dashboard/
+https://dragon571273-stack.github.io/LZQ-dashboard/
 
 ## 数据更新与自动更新
 
@@ -85,19 +84,6 @@ python3 verify_data.py     # 校验产物文件
 
 随后 `npm run dev` 即可在 http://127.0.0.1:7100 访问。
 
-### 已弃用脚本
-
-- `fetch_data_fast.py` / `fetch_data_patched.py` — iFinD 旧版本迭代残留，已停止使用并加入 `.gitignore`
-- `fetch_data_server.py` — 服务器版未完工(mock 模式),请改用 `fetch_data_server_v2.py` (基于 hist_cache 兜底)
-
-`fetch_data_em.py` 的 `fetch_history` 自带**成交量单位自愈**（腾讯"手"与 iFinD"份"混用会自动归一）；若服务器 hist_cache 从未修复过，可先跑一次：
-
-```bash
-python3 scripts/repair_volume_units.py
-```
-
-本机（Mac）更新：`python3 fetch_data_em.py`（需 pandas，直连腾讯 + 增量缓存 + 自愈），提交推送即上线。
-
 ### ECharts 定制构建（减小首屏体积）
 
 `lib/echarts.min.js` 为定制构建（595KB vs 官方全量 1MB），仅包含站点用到的图表/组件。修改入口后重建：
@@ -134,11 +120,3 @@ npx esbuild entry.js --bundle --minify --format=iife --outfile=lib/echarts.min.j
 
 本地验证：`pip install -r requirements-tenders.txt`；`python -m playwright install chromium`；`python -m unittest discover -s tests -p 'test_tenders.py'`。采集试运行可用 `python fetch_tenders.py --output /tmp/tenders-check.json`，不覆盖现有文件。
 
-
-### 本机定时补充（已配置）
-
-由于GitHub托管运行器访问全国性公告源返回405，当前Mac已配置用户级LaunchAgent `com.lion.reits-tenders`，每日北京时间09:50、18:50及用户登录后补跑。Mac需开机联网；休眠期间的日历任务通常在唤醒后补跑，关机不能按原时点执行。
-
-运行目录：`~/Library/Application Support/REITsTenderUpdater/`；日志：该目录下`updater.log`；配置：`~/Library/LaunchAgents/com.lion.reits-tenders.plist`。运行器代码见`scripts/update_tenders_local.py`。本机只通过GitHub内容API更新`tenders.json`，不更新行情、财务模型或本地仓库。更新期间有并发提交时，重读SHA并合并公告后重试。
-
-本机用户令牌推送自动触发GitHub Pages及招投标镜像发布；`tenders.json`变更不触发行情采集。运行器采用安装时的固定代码副本，后续升级需同步专用目录中的脚本。
