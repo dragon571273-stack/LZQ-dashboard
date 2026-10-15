@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-14T23:13:59+08:00",
+  "checkedAt": "2026-10-15T13:58:12+08:00",
   "lastSuccessAt": "2026-09-15T21:39:47+08:00",
   "status": "failed",
   "schedule": "云端每日09:20/18:20；本机补充09:50/18:50（北京时间；Mac需开机联网）",
@@ -11,17 +11,17 @@
       "error": "公开列表未加载：访问验证、登录限制或源站异常；不等同于无新增公告",
       "id": "ctbpsp",
       "name": "中国招标投标公共服务平台（新站）",
-      "checkedAt": "2026-10-14T23:13:59+08:00",
+      "checkedAt": "2026-10-15T13:58:12+08:00",
       "count": 0,
       "latestBulletinDate": null,
       "lastSuccessAt": null
     },
     {
       "status": "failed",
-      "error": "405 Client Error: Not Allowed for url: https://bulletin.cebpubservice.com/xxfbcmses/search/bulletin.html?searchDate=2026-09-14&dates=30&word=REITs&page=1",
+      "error": "405 Client Error: Not Allowed for url: https://bulletin.cebpubservice.com/xxfbcmses/search/bulletin.html?searchDate=2026-09-15&dates=30&word=REITs&page=1",
       "id": "ceb",
       "name": "中国招标投标公共服务平台（官方备用列表）",
-      "checkedAt": "2026-10-14T23:13:59+08:00",
+      "checkedAt": "2026-10-15T13:58:12+08:00",
       "count": 0,
       "latestBulletinDate": null,
       "lastSuccessAt": "2026-09-15T21:39:47+08:00"
@@ -31,10 +31,10 @@
       "scope": "官网首页最新公告，仅作补充",
       "id": "szwater",
       "name": "深圳环水集团官网采购公告（补充）",
-      "checkedAt": "2026-10-14T23:13:59+08:00",
+      "checkedAt": "2026-10-15T13:58:12+08:00",
       "count": 0,
       "latestBulletinDate": null,
-      "lastSuccessAt": "2026-10-14T23:13:59+08:00"
+      "lastSuccessAt": "2026-10-15T13:58:12+08:00"
     }
   ],
   "items": [
@@ -614,46 +614,6 @@
       "date": "2026-07-20",
       "title": "南京地铁集团类REITs发行服务项目中标候选人公示",
       "url": "https://ctbpsp.com/#/bulletinDetail?uuid=8a9494759dbedf91019f7e4d157e1dac&inpvalue=&dataSource=0&tenderAgency=",
-      "source": "ceb",
-      "tag": "招投标",
-      "media": "中国招标投标公共服务平台（官方备用列表）",
-      "summary": "招投标公告线索；请以链接中的原始公告及后续更正为准。"
-    },
-    {
-      "code": "bid_9f38be2f96d9e96adb11",
-      "date": "2026-07-16",
-      "title": "昌平保障房机构间REITs项目评估服务竞争性磋商公告",
-      "url": "https://ctbpsp.com/#/bulletinDetail?uuid=8a9494849e5d0d8a019f69c34697600d&inpvalue=&dataSource=0&tenderAgency=",
-      "source": "ceb",
-      "tag": "招投标",
-      "media": "中国招标投标公共服务平台（官方备用列表）",
-      "summary": "招投标公告线索；请以链接中的原始公告及后续更正为准。"
-    },
-    {
-      "code": "bid_ba7f21f893b957c0fb50",
-      "date": "2026-07-16",
-      "title": "昌平保障房机构间REITs项目计划管理人等服务竞争性磋商公告",
-      "url": "https://ctbpsp.com/#/bulletinDetail?uuid=8a9494849e5d0d8a019f69ad658a5bbe&inpvalue=&dataSource=0&tenderAgency=",
-      "source": "ceb",
-      "tag": "招投标",
-      "media": "中国招标投标公共服务平台（官方备用列表）",
-      "summary": "招投标公告线索；请以链接中的原始公告及后续更正为准。"
-    },
-    {
-      "code": "bid_eeb921c4be6ace08ac4c",
-      "date": "2026-07-16",
-      "title": "昌平保障房机构间REITs项目律师服务竞争性磋商公告",
-      "url": "https://ctbpsp.com/#/bulletinDetail?uuid=8a9494859e5d0b9e019f69900ea852a5&inpvalue=&dataSource=0&tenderAgency=",
-      "source": "ceb",
-      "tag": "招投标",
-      "media": "中国招标投标公共服务平台（官方备用列表）",
-      "summary": "招投标公告线索；请以链接中的原始公告及后续更正为准。"
-    },
-    {
-      "code": "bid_08eeb4fc9aad7d976008",
-      "date": "2026-07-16",
-      "title": "昌平保障房机构间REITs项目审计服务竞争性磋商公告",
-      "url": "https://ctbpsp.com/#/bulletinDetail?uuid=8a9494869e5d09a4019f69cfe0d26d36&inpvalue=&dataSource=0&tenderAgency=",
       "source": "ceb",
       "tag": "招投标",
       "media": "中国招标投标公共服务平台（官方备用列表）",
